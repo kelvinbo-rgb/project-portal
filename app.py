@@ -178,7 +178,8 @@ for i, p in enumerate(projects):
         qr_b64 = pil_to_base64(qr_img)
         
         # Pure HTML Card to guarantee layout on Mobile
-        st.markdown(f"""
+        # Minimized whitespace in HTML string to prevent markdown parsing errors
+        html_content = f"""
         <div class="html-card">
             <div class="card-header">
                 <div class="qr-container">
@@ -202,7 +203,8 @@ for i, p in enumerate(projects):
                 <span style="font-size:0.85em; opacity:0.85;">{p['desc_th']}</span>
             </div>
         </div>
-        """, unsafe_allow_html=True)
+        """
+        st.markdown(html_content, unsafe_allow_html=True)
 
 st.divider()
 
@@ -237,14 +239,33 @@ st.markdown("""
 <br>
 <hr>
 <div style="text-align: center; color: #666; font-size: 0.9em; margin-top: 20px; line-height: 1.8;">
-    <p style="margin-bottom: 5px;"><b>Contact Me / 联系方式</b></p>
-    <p>
-        <span style="margin: 0 10px;">💬 WeChat: kelvinbo</span> | 
-        <span style="margin: 0 10px;">💚 Line: kelvinbo</span>
-    </p>
-    <p>📧 Email: <a href="mailto:kelvinbo@gmail.com" style="color: #d4af37; text-decoration: none;">kelvinbo@gmail.com</a></p>
-    <br>
-    <p style="color: #aaa; font-size: 0.8em;">May your dreams come true. / 祝终有一日你我梦想成真</p>
-    <p style="color: #aaa; font-size: 0.8em;">© 2025 AI App Suite</p>
+    <p style="margin-bottom: 15px;"><b>Contact Me / 联系方式</b></p>
+</div>
+""", unsafe_allow_html=True)
+
+c1, c2, c3 = st.columns([1,1,1])
+
+with c1:
+    st.markdown("<div style='text-align: center;'>💬 WeChat</div>", unsafe_allow_html=True)
+    if os.path.exists("WeChat.jpg"):
+        st.image("WeChat.jpg", width=120, use_container_width=False)
+    else:
+        st.markdown("<div style='text-align: center; color:#aaa;'>WeChat: kelvinbo</div>", unsafe_allow_html=True)
+
+with c2:
+    st.markdown("<div style='text-align: center;'>💚 Line</div>", unsafe_allow_html=True)
+    if os.path.exists("Line.jpg"):
+        st.image("Line.jpg", width=120, use_container_width=False)
+    else:
+        st.markdown("<div style='text-align: center; color:#aaa;'>Line: kelvinbo</div>", unsafe_allow_html=True)
+
+with c3:
+    st.markdown("<div style='text-align: center;'>📧 Email</div>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: center; margin-top: 40px;'><a href='mailto:kelvinbo@gmail.com'>kelvinbo@gmail.com</a></div>", unsafe_allow_html=True)
+
+st.markdown("""
+<div style="text-align: center; color: #aaa; font-size: 0.8em; margin-top: 30px;">
+    <p>May your dreams come true. / 祝终有一日你我梦想成真</p>
+    <p>© 2025 AI App Suite</p>
 </div>
 """, unsafe_allow_html=True)

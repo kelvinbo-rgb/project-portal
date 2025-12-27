@@ -178,32 +178,32 @@ for i, p in enumerate(projects):
         qr_b64 = pil_to_base64(qr_img)
         
         # Pure HTML Card to guarantee layout on Mobile
-        # Minimized whitespace in HTML string to prevent markdown parsing errors
+        # Pure HTML Card - Indentation Stripped to prevent Markdown code-block rendering
         html_content = f"""
-        <div class="html-card">
-            <div class="card-header">
-                <div class="qr-container">
-                    <img src="data:image/png;base64,{qr_b64}" class="qr-img">
-                </div>
-                <div class="info-container">
-                    <div style="font-size: 2em; line-height: 1; margin-bottom: 5px;">{p['icon']}</div>
-                    <div style="color:{p['color']}; font-weight:900; font-size:1.15em; line-height:1.2;">{p['t_en']}</div>
-                    <div style="color:#555; font-weight:700; font-size:1em; line-height:1.3;">{p['t_cn']}</div>
-                    <div style="color:#888; font-weight:400; font-size:0.9em;">{p['t_th']}</div>
-                </div>
-            </div>
-            
-            <a href="{p['url']}" target="_blank" class="launch-btn" style="background-color: {p['color']};">
-                🚀 Launch / 启动 / เริ่มต้น
-            </a>
-            
-            <div class="desc-box" style="background-color: {p['bg']}; border-left-color: {p['color']};">
-                <b>{p['desc_en']}</b><br>
-                <span style="font-size:0.9em; opacity:0.9;">{p['desc_cn']}</span><br>
-                <span style="font-size:0.85em; opacity:0.85;">{p['desc_th']}</span>
-            </div>
+<div class="html-card">
+    <div class="card-header">
+        <div class="qr-container">
+            <img src="data:image/png;base64,{qr_b64}" class="qr-img">
         </div>
-        """
+        <div class="info-container">
+            <div style="font-size: 2em; line-height: 1; margin-bottom: 5px;">{p['icon']}</div>
+            <div style="color:{p['color']}; font-weight:900; font-size:1.15em; line-height:1.2;">{p['t_en']}</div>
+            <div style="color:#555; font-weight:700; font-size:1em; line-height:1.3;">{p['t_cn']}</div>
+            <div style="color:#888; font-weight:400; font-size:0.9em;">{p['t_th']}</div>
+        </div>
+    </div>
+    
+    <a href="{p['url']}" target="_blank" class="launch-btn" style="background-color: {p['color']};">
+        🚀 Launch / 启动 / เริ่มต้น
+    </a>
+    
+    <div class="desc-box" style="background-color: {p['bg']}; border-left-color: {p['color']};">
+        <b>{p['desc_en']}</b><br>
+        <span style="font-size:0.9em; opacity:0.9;">{p['desc_cn']}</span><br>
+        <span style="font-size:0.85em; opacity:0.85;">{p['desc_th']}</span>
+    </div>
+</div>
+"""
         st.markdown(html_content, unsafe_allow_html=True)
 
 st.divider()

@@ -21,6 +21,14 @@ st.set_page_config(
 import streamlit as st
 from utils import QRGenerator
 import os
+import base64
+import io
+
+# Helper to convert PIL image to base64 for HTML embedding
+def pil_to_base64(img):
+    buffered = io.BytesIO()
+    img.save(buffered, format="PNG")
+    return base64.b64encode(buffered.getvalue()).decode()
 
 # Page Config
 st.set_page_config(
@@ -53,41 +61,68 @@ st.markdown("""
         margin-top: 20px;
     }
     
-    /* Custom Button Style */
+    /* HTML Card Styles */
+    .html-card {
+        background: white;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        margin-bottom: 20px;
+        border: 1px solid #eee;
+    }
+    
+    /* Flex Container for QR + Info */
+    .card-header {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .qr-container {
+        flex: 0 0 110px; /* Fixed width for QR */
+        width: 110px;
+    }
+    .qr-img {
+        width: 100%;
+        border-radius: 8px;
+        border: 1px solid #f0f0f0;
+    }
+    
+    .info-container {
+        flex: 1; /* Take remaining space */
+        min-width: 0; /* Prevent overflow */
+    }
+    
+    /* Button Style */
     .launch-btn {
         display: block;
-        padding: 12px 20px;
+        padding: 10px 0;
         color: white !important;
         text-decoration: none;
-        border-radius: 12px;
+        border-radius: 10px;
         font-weight: bold;
         text-align: center;
         width: 100%;
         margin-top: 15px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        transition: transform 0.2s;
+        font-size: 0.95em;
+        box-shadow: 0 3px 5px rgba(0,0,0,0.1);
     }
     .launch-btn:hover {
-        transform: scale(1.02);
         opacity: 0.9;
+        text-decoration: none;
     }
-
-    /* Card Titles */
-    .card-icon { font-size: 2.5em; margin-bottom: 0.1em; display: block; }
-    .title-en { font-weight: 900; font-size: 1.3em; display: block; }
-    .title-cn { font-weight: 700; font-size: 1.1em; color: #555; display: block; }
-    .title-th { font-weight: 400; font-size: 1.0em; color: #777; display: block; }
 
     /* Description Box */
     .desc-box {
-        background-color: #f8f9fa;
-        border-radius: 10px;
-        padding: 15px;
-        margin-top: 15px;
-        font-size: 0.9em;
-        color: #444;
-        line-height: 1.6;
-        border-left: 4px solid #ddd;
+        background-color: #fafafa;
+        border-radius: 8px;
+        padding: 12px;
+        margin-top: 12px;
+        font-size: 0.85em;
+        color: #555;
+        line-height: 1.5;
+        border-left: 3px solid #ddd;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -138,38 +173,36 @@ cols = st.columns(2)
 for i, p in enumerate(projects):
     col = cols[i % 2]
     with col:
-        # Card Container
-        with st.container(border=True):
-            # Row 1: QR (Left) + Titles (Right)
-            c1, c2 = st.columns([1, 1.8])
+        # Generate QR base64
+        qr_img = QRGenerator.generate(p['url'])
+        qr_b64 = pil_to_base64(qr_img)
+        
+        # Pure HTML Card to guarantee layout on Mobile
+        st.markdown(f"""
+        <div class="html-card">
+            <div class="card-header">
+                <div class="qr-container">
+                    <img src="data:image/png;base64,{qr_b64}" class="qr-img">
+                </div>
+                <div class="info-container">
+                    <div style="font-size: 2em; line-height: 1; margin-bottom: 5px;">{p['icon']}</div>
+                    <div style="color:{p['color']}; font-weight:900; font-size:1.15em; line-height:1.2;">{p['t_en']}</div>
+                    <div style="color:#555; font-weight:700; font-size:1em; line-height:1.3;">{p['t_cn']}</div>
+                    <div style="color:#888; font-weight:400; font-size:0.9em;">{p['t_th']}</div>
+                </div>
+            </div>
             
-            with c1:
-                st.image(QRGenerator.generate(p['url']), use_container_width=True)
-            
-            with c2:
-                # Titles
-                st.markdown(f"""
-                <span class='card-icon'>{p['icon']}</span>
-                <span class='title-en' style='color:{p['color']}'>{p['t_en']}</span>
-                <span class='title-cn'>{p['t_cn']}</span>
-                <span class='title-th'>{p['t_th']}</span>
-                """, unsafe_allow_html=True)
-
-            # Row 2: Launch Button
-            st.markdown(f"""
             <a href="{p['url']}" target="_blank" class="launch-btn" style="background-color: {p['color']};">
                 🚀 Launch / 启动 / เริ่มต้น
             </a>
-            """, unsafe_allow_html=True)
             
-            # Row 3: Rich Description Box (Colored Background)
-            st.markdown(f"""
-            <div class='desc-box' style='background-color: {p['bg']}; border-left-color: {p['color']};'>
+            <div class="desc-box" style="background-color: {p['bg']}; border-left-color: {p['color']};">
                 <b>{p['desc_en']}</b><br>
-                <span style='font-size:0.9em; opacity:0.9;'>{p['desc_cn']}</span><br>
-                <span style='font-size:0.85em; opacity:0.8;'>{p['desc_th']}</span>
+                <span style="font-size:0.9em; opacity:0.9;">{p['desc_cn']}</span><br>
+                <span style="font-size:0.85em; opacity:0.85;">{p['desc_th']}</span>
             </div>
-            """, unsafe_allow_html=True)
+        </div>
+        """, unsafe_allow_html=True)
 
 st.divider()
 
@@ -199,10 +232,19 @@ with s2:
     else:
         st.image("https://via.placeholder.com/200?text=PromptPay", width=200)
 
+# --- CONTACT FOOTER ---
 st.markdown("""
 <br>
-<div style="text-align: center; color: #aaa; font-size: 0.8em; margin-top: 20px;">
-    <p>May your dreams come true. / 祝终有一日你我梦想成真</p>
-    <p>© 2025 AI App Suite</p>
+<hr>
+<div style="text-align: center; color: #666; font-size: 0.9em; margin-top: 20px; line-height: 1.8;">
+    <p style="margin-bottom: 5px;"><b>Contact Me / 联系方式</b></p>
+    <p>
+        <span style="margin: 0 10px;">💬 WeChat: kelvinbo</span> | 
+        <span style="margin: 0 10px;">💚 Line: kelvinbo</span>
+    </p>
+    <p>📧 Email: <a href="mailto:kelvinbo@gmail.com" style="color: #d4af37; text-decoration: none;">kelvinbo@gmail.com</a></p>
+    <br>
+    <p style="color: #aaa; font-size: 0.8em;">May your dreams come true. / 祝终有一日你我梦想成真</p>
+    <p style="color: #aaa; font-size: 0.8em;">© 2025 AI App Suite</p>
 </div>
 """, unsafe_allow_html=True)

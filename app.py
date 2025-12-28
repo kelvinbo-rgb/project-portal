@@ -167,9 +167,9 @@ projects = [
     },
     {
         "t_en": "Thai Baht AI Bot", "t_cn": "泰铢AI机器人", "t_th": "บอทเรทเงินไทย",
-        "desc_en": "AI assistant for THB rates. Send '-汇率' to get instant currency updates.",
-        "desc_cn": "泰铢汇率 AI 智导。在 LINE 中发送指令“-汇率”即可获取实时兑换行情。",
-        "desc_th": "ผู้ช่วยอัจฉริยะด้านอัตราแลกเปลี่ยน พิมพ์คำสั่ง '-汇率' เพื่อตรวจสอบราคาแบบทันที",
+        "desc_en": "AI assistant for THB rates. Send 'Rate' to get instant currency updates.",
+        "desc_cn": "泰铢汇率 AI 智导。在 LINE 中发送指令“汇率”即可获取实时兑换行情。",
+        "desc_th": "ผู้ช่วยอัจฉริยะด้านอัตราแลกเปลี่ยน พิมพ์คำสั่ง '汇率' เพื่อตรวจสอบราคาแบบทันที",
         "url": "https://line.me/R/ti/p/%40282yqodu",
         "icon": "🤖", "color": "#3498db", "bg": "#F0F8FF"
     }

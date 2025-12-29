@@ -172,6 +172,14 @@ projects = [
         "desc_th": "ผู้ช่วยอัจฉริยะด้านอัตราแลกเปลี่ยน พิมพ์คำสั่ง '汇率' เพื่อตรวจสอบราคาแบบทันที",
         "url": "https://line.me/R/ti/p/%40282yqodu",
         "icon": "🤖", "color": "#3498db", "bg": "#F0F8FF"
+    },
+    {
+        "t_en": "PP-Pay Business", "t_cn": "PP-Pay 商业收银", "t_th": "ระบบรับชำระ PP-Pay",
+        "desc_en": "Professional PromptPay cashier system with receipt verification. [Paid Project - Free Demo]",
+        "desc_cn": "【付费项目】商业级 PromptPay 收银与回执核验系统。点击下方按钮即可免费体验。",
+        "desc_th": "ระบบรับชำระและตรวจสลิปอัตโนมัติระดับธุรกิจ [โปรเจกต์เชิงพาณิชย์ - มีตัวอย่างให้ลอง]",
+        "url": "https://pp-pay-production.up.railway.app/?mid=DEMO",
+        "icon": "💳", "color": "#2ecc71", "bg": "#F4FFF8"
     }
 ]
 

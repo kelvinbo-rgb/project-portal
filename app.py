@@ -204,22 +204,24 @@ st.markdown("""
         font-weight: 900;
         font-size: clamp(1.3rem, 4vw, 2rem); 
         margin-bottom: 5px;
-        color: #fff;
+        color: #ffffff;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
     .contact-subtitle {
-        font-size: 0.85em;
-        color: rgba(255,255,255,0.6);
+        font-size: 0.9em;
+        color: #e0e0e0;
         margin-bottom: 20px;
         letter-spacing: 1px;
     }
     
-    /* Section Headers on Dark BG */
+    /* Section Headers on Dark BG - Bright White */
     .section-header {
-        color: #fff;
+        color: #ffffff;
         font-weight: 900;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
     .section-subheader {
-        color: rgba(255,255,255,0.7);
+        color: #e0e0e0;
     }
     
     /* Contact Labels - Bright on Dark */
@@ -290,7 +292,7 @@ projects = [
     {
         "t_en": "PP-Pay Business", "t_cn": "PromptPay 商业收银", "t_th": "ระบบ PromptPay รับชำระ",
         "desc_en": "Enterprise PromptPay cashier system with slip verification. [Paid Project]",
-        "desc_cn": "【付费项目】商业级 PromptPay 收银与回执核验系统。点击上方启动按钮免费体验。",
+        "desc_cn": "【付费项目】商业级 PromptPay 收银与回执核验系统。点击启动按钮免费体验。",
         "desc_th": "ระบบ PromptPay รับชำระและตรวจสลิปอัตโนมัติ [โปรเจกต์เชิงพาณิชย์ - มีตัวอย่างให้ลอง]",
         "url": "https://pp-pay-production.up.railway.app/?mid=DEMO",
         "icon": "💳", "color": "#27ae60", "bg": "#F4FFF8",
@@ -346,14 +348,14 @@ st.markdown("""
 
 s1, s2 = st.columns(2)
 with s1:
-    st.markdown("<div style='text-align: center; font-weight: bold; color: #00A1E9; margin-bottom: 15px;'>ALIPAY (支付宝)</div>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: center; font-weight: bold; color: #ffffff; margin-bottom: 15px;'>Alipay (支付宝)</div>", unsafe_allow_html=True)
     if os.path.exists("qr_alipay.jpg"):
         st.image("qr_alipay.jpg", width=200, use_container_width=False)
     else:
         st.image("https://via.placeholder.com/200?text=Alipay", width=200)
 
 with s2:
-    st.markdown("<div style='text-align: center; font-weight: bold; color: #153e7e; margin-bottom: 15px;'>PROMPTPAY (THAILAND)</div>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: center; font-weight: bold; color: #ffffff; margin-bottom: 15px;'>PromptPay (Thailand)</div>", unsafe_allow_html=True)
     if os.path.exists("qr_promptpay.jpg"):
         st.image("qr_promptpay.jpg", width=200, use_container_width=False)
     else:

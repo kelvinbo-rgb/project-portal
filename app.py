@@ -93,6 +93,9 @@ st.markdown("""
         position: relative;
         overflow: hidden;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
+        min-height: 520px; /* Force uniform height on desktop */
+        display: flex;
+        flex-direction: column;
     }
     .html-card:hover {
         transform: translateY(-5px);
@@ -103,13 +106,13 @@ st.markdown("""
     /* Background watermark effect */
     .bg-image-watermark {
         position: absolute;
-        top: -15px;
-        right: -15px;
-        width: 130px;
-        opacity: 0.06;
-        filter: grayscale(1);
+        top: -10px;
+        right: -10px;
+        width: 140px;
+        opacity: 0.15;
         transform: rotate(15deg);
         pointer-events: none;
+        z-index: 0;
     }
     .bg-icon-watermark {
         position: absolute;
@@ -175,6 +178,7 @@ st.markdown("""
         border: 1px solid rgba(0,0,0,0.03);
         position: relative;
         z-index: 2;
+        flex-grow: 1; /* Push the box to fill space */
     }
 
     /* Contact Section Premium */
@@ -184,6 +188,19 @@ st.markdown("""
         padding: 40px;
         margin-top: 60px;
         border: 1px dashed rgba(0,0,0,0.1);
+    }
+    
+    .contact-title {
+        font-weight: 900;
+        font-size: clamp(1.5rem, 5vw, 2.5rem); 
+        margin-bottom: 5px;
+        color: #333;
+    }
+    .contact-subtitle {
+        font-size: 0.9em;
+        color: #777;
+        margin-bottom: 30px;
+        letter-spacing: 1px;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -227,7 +244,7 @@ projects = [
         "icon": "🔮", "color": "#9b59b6", "bg": "#FAF5FF"
     },
     {
-        "t_en": "Thai Baht AI Bot", "t_cn": "泰铢AI机器人", "t_th": "บอทเรทเงินไทย",
+        "t_en": "Thai FX Assistant", "t_cn": "泰铢汇率助手", "t_th": "ผู้ช่วยอัตราแลกเปลี่ยน",
         "desc_en": "Intelligent LINE assistant for exchange rates. Command 'Rate'.",
         "desc_cn": "泰铢汇率 AI 智导。在 LINE 中发送指令“汇率”即可获取实时兑换行情。",
         "desc_th": "ผู้ช่วยอัจฉริยะด้านอัตราแลกเปลี่ยน พิมพ์คำสั่ง 'Rate' เพื่อตรวจสอบราคาแบบทันที",
@@ -241,7 +258,7 @@ projects = [
         "desc_th": "ระบบรับชำระและตรวจสลิปอัตโนมัติระดับธุรกิจ [โปรเจกต์เชิงพาณิชย์ - มีตัวอย่างให้ลอง]",
         "url": "https://pp-pay-production.up.railway.app/?mid=DEMO",
         "icon": "💳", "color": "#27ae60", "bg": "#F4FFF8",
-        "img_icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/PromptPay-logo.png/711px-PromptPay-logo.png"
+        "img_icon": "https://upload.wikimedia.org/wikipedia/commons/e/e0/PromptPay-logo.png"
     }
 ]
 
@@ -256,7 +273,7 @@ for i, p in enumerate(projects):
         # Watermark logic - Slightly less faded for PromptPay
         watermark_html = f'<div class="bg-icon-watermark">{p["icon"]}</div>'
         if "img_icon" in p:
-            watermark_html = f'<img src="{p["img_icon"]}" class="bg-image-watermark" style="opacity:0.12;">'
+            watermark_html = f'<img src="{p["img_icon"]}" class="bg-image-watermark">'
 
         html_content = (
             f'<div class="html-card" style="background: rgba(255,255,255,0.82);">{watermark_html}'
@@ -306,8 +323,9 @@ with s2:
 # --- CONTACT FOOTER ---
 st.markdown("""
 <div class="contact-card">
-    <div style="text-align: center; color: #333; line-height: 2;">
-        <h2 style="font-weight: 900; margin-bottom: 30px;">READY TO CONNECT?</h2>
+    <div style="text-align: center; color: #333; line-height: 1.5;">
+        <h2 class="contact-title">READY TO CONNECT?</h2>
+        <p class="contact-subtitle">联系方式 / ติดต่อเรา</p>
     </div>
 </div>
 """, unsafe_allow_html=True)

@@ -53,6 +53,22 @@ st.markdown("""
         font-family: 'Outfit', sans-serif;
     }
     
+    /* Floating Particles Effect */
+    .stApp::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            radial-gradient(circle at 20% 80%, rgba(233, 69, 96, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(243, 148, 34, 0.1) 0%, transparent 40%),
+            radial-gradient(circle at 40% 40%, rgba(52, 152, 219, 0.08) 0%, transparent 30%);
+        pointer-events: none;
+        z-index: 0;
+    }
+    
     /* Responsive Hero Title - Light on Dark */
     .hero-title {
         background: linear-gradient(90deg, #e94560, #f39422, #e94560);
@@ -205,6 +221,23 @@ st.markdown("""
     .section-subheader {
         color: rgba(255,255,255,0.7);
     }
+    
+    /* Contact Labels - Bright on Dark */
+    .contact-label {
+        color: #fff !important;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .email-link {
+        color: #7dd3fc !important;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .email-link:hover {
+        color: #38bdf8 !important;
+        text-decoration: underline;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -240,8 +273,8 @@ projects = [
     },
     {
         "t_en": "Tarot Spreads", "t_cn": "塔罗牌阵", "t_th": "ไพ่ยิปซี",
-        "desc_en": "Spiritual guidance via card spreads. [Commercial Project]",
-        "desc_cn": "【付费项目】每日塔罗指引，交互式牌阵帮助您探索内心。先免费体验吧。",
+        "desc_en": "Spiritual guidance via card spreads with live interpretation. [Commercial Project]",
+        "desc_cn": "【付费项目】每日塔罗指引，真人解析，帮助您探索内心。先免费体验吧。",
         "desc_th": "เริ่มต้นวันใหม่ด้วยคำทำนาย ไพ่ยิปซีเพื่อค้นหาคำตอบและแนวทางชีวิต",
         "url": "https://kelvinbo-rgb.github.io/hong-tarot/TAROT.html",
         "icon": "🔮", "color": "#9b59b6", "bg": "#FAF5FF"
@@ -255,10 +288,10 @@ projects = [
         "icon": "🤖", "color": "#2980b9", "bg": "#F0F8FF"
     },
     {
-        "t_en": "PP-Pay Business", "t_cn": "PP-Pay 商业收银", "t_th": "ระบบรับชำระ PP-Pay",
-        "desc_en": "Enterprise cashier system with slip verification. [Paid Project]",
+        "t_en": "PP-Pay Business", "t_cn": "PromptPay 商业收银", "t_th": "ระบบ PromptPay รับชำระ",
+        "desc_en": "Enterprise PromptPay cashier system with slip verification. [Paid Project]",
         "desc_cn": "【付费项目】商业级 PromptPay 收银与回执核验系统。点击上方启动按钮免费体验。",
-        "desc_th": "ระบบรับชำระและตรวจสลิปอัตโนมัติระดับธุรกิจ [โปรเจกต์เชิงพาณิชย์ - มีตัวอย่างให้ลอง]",
+        "desc_th": "ระบบ PromptPay รับชำระและตรวจสลิปอัตโนมัติ [โปรเจกต์เชิงพาณิชย์ - มีตัวอย่างให้ลอง]",
         "url": "https://pp-pay-production.up.railway.app/?mid=DEMO",
         "icon": "💳", "color": "#27ae60", "bg": "#F4FFF8",
         "local_icon": "PromptPay.png"
@@ -329,7 +362,7 @@ with s2:
 # --- CONTACT FOOTER ---
 st.markdown("""
 <div class="contact-card">
-    <div style="text-align: center; color: #333; line-height: 1.5;">
+    <div style="text-align: center; line-height: 1.5;">
         <h2 class="contact-title">READY TO CONNECT?</h2>
         <p class="contact-subtitle">联系方式 / ติดต่อเรา</p>
     </div>
@@ -339,22 +372,22 @@ st.markdown("""
 c1, c2, c3 = st.columns([1.2, 1.2, 1])
 
 with c1:
-    st.markdown("<div style='text-align: center; font-weight: bold; margin-bottom: 10px;'>💬 WeChat</div>", unsafe_allow_html=True)
+    st.markdown("<div class='contact-label'>💬 WeChat</div>", unsafe_allow_html=True)
     if os.path.exists("WeChat.jpg"):
         st.image("WeChat.jpg", width=180, use_container_width=False)
     else:
-        st.markdown("<div style='text-align: center; color:#aaa; font-size:0.9em;'>ID: kelvinbo</div>", unsafe_allow_html=True)
+        st.markdown("<div style='text-align: center; color:#fff; font-size:0.9em;'>ID: kelvinbo</div>", unsafe_allow_html=True)
 
 with c2:
-    st.markdown("<div style='text-align: center; font-weight: bold; margin-bottom: 10px;'>💚 Line</div>", unsafe_allow_html=True)
+    st.markdown("<div class='contact-label'>💚 Line</div>", unsafe_allow_html=True)
     if os.path.exists("Line.jpg"):
         st.image("Line.jpg", width=180, use_container_width=False)
     else:
-        st.markdown("<div style='text-align: center; color:#aaa; font-size:0.9em;'>ID: kelvinbo</div>", unsafe_allow_html=True)
+        st.markdown("<div style='text-align: center; color:#fff; font-size:0.9em;'>ID: kelvinbo</div>", unsafe_allow_html=True)
 
 with c3:
-    st.markdown("<div style='text-align: center; font-weight: bold; margin-bottom: 10px;'>📧 Email</div>", unsafe_allow_html=True)
-    st.markdown("<div style='text-align: center; margin-top: 30px;'><a href='mailto:kelvinbo@gmail.com' style='color:#000; text-decoration:none; font-weight:bold;'>kelvinbo@gmail.com</a><br><a href='mailto:kelvinbo@outlook.com' style='color:#000; text-decoration:none; font-weight:bold;'>kelvinbo@outlook.com</a></div>", unsafe_allow_html=True)
+    st.markdown("<div class='contact-label'>📧 Email</div>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: center; margin-top: 30px;'><a href='mailto:kelvinbo@gmail.com' class='email-link'>kelvinbo@gmail.com</a><br><a href='mailto:kelvinbo@outlook.com' class='email-link'>kelvinbo@outlook.com</a></div>", unsafe_allow_html=True)
 
 st.markdown("""
 <br><br>

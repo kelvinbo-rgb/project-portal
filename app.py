@@ -69,18 +69,33 @@ st.markdown("""
         box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         margin-bottom: 20px;
         border: 1px solid #eee;
+        position: relative;
+        overflow: hidden;
     }
     
+    /* Decorative Background Icon (Top Right) */
+    .bg-icon {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        font-size: 5em;
+        opacity: 0.1;
+        transform: rotate(15deg);
+        user-select: none;
+    }
+
     /* Flex Container for QR + Info */
     .card-header {
         display: flex;
         flex-direction: row;
         align-items: flex-start;
         gap: 15px;
+        position: relative;
+        z-index: 1;
     }
     
     .qr-container {
-        flex: 0 0 110px; /* Fixed width for QR */
+        flex: 0 0 110px; 
         width: 110px;
     }
     .qr-img {
@@ -90,8 +105,8 @@ st.markdown("""
     }
     
     .info-container {
-        flex: 1; /* Take remaining space */
-        min-width: 0; /* Prevent overflow */
+        flex: 1;
+        min-width: 0;
     }
     
     /* Button Style */
@@ -107,6 +122,8 @@ st.markdown("""
         margin-top: 15px;
         font-size: 0.95em;
         box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+        position: relative;
+        z-index: 2;
     }
     .launch-btn:hover {
         opacity: 0.9;
@@ -123,6 +140,8 @@ st.markdown("""
         color: #555;
         line-height: 1.5;
         border-left: 3px solid #ddd;
+        position: relative;
+        z-index: 2;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -160,7 +179,7 @@ projects = [
     {
         "t_en": "Tarot Spreads", "t_cn": "塔罗牌阵", "t_th": "ไพ่ยิปซี",
         "desc_en": "Start your day with spiritual guidance. Interactive card spreads for insights.",
-        "desc_cn": "每日塔罗指引，交互式牌阵帮助您探索内心，寻找生活启示。",
+        "desc_cn": "【付费项目】每日塔罗指引，交互式牌阵帮助您探索内心。先免费体验吧。",
         "desc_th": "เริ่มต้นวันใหม่ด้วยคำทำนาย ไพ่ยิปซีเพื่อค้นหาคำตอบและแนวทางชีวิต",
         "url": "https://kelvinbo-rgb.github.io/hong-tarot/TAROT.html",
         "icon": "🔮", "color": "#9b59b6", "bg": "#FAF5FF"
@@ -169,14 +188,14 @@ projects = [
         "t_en": "Thai Baht AI Bot", "t_cn": "泰铢AI机器人", "t_th": "บอทเรทเงินไทย",
         "desc_en": "AI assistant for THB rates. Send 'Rate' to get instant currency updates.",
         "desc_cn": "泰铢汇率 AI 智导。在 LINE 中发送指令“汇率”即可获取实时兑换行情。",
-        "desc_th": "ผู้ช่วยอัจฉริยะด้านอัตราแลกเปลี่ยน พิมพ์คำสั่ง '汇率' เพื่อตรวจสอบราคาแบบทันที",
+        "desc_th": "ผู้ช่วยอัจฉริยะด้านอัตราแลกเปลี่ยน พิมพ์คำสั่ง 'Rate' เพื่อตรวจสอบราคาแบบทันที",
         "url": "https://line.me/R/ti/p/%40282yqodu",
         "icon": "🤖", "color": "#3498db", "bg": "#F0F8FF"
     },
     {
         "t_en": "PP-Pay Business", "t_cn": "PP-Pay 商业收银", "t_th": "ระบบรับชำระ PP-Pay",
         "desc_en": "Professional PromptPay cashier system with receipt verification. [Paid Project - Free Demo]",
-        "desc_cn": "【付费项目】商业级 PromptPay 收银与回执核验系统。点击下方按钮即可免费体验。",
+        "desc_cn": "【付费项目】商业级 PromptPay 收银与回执核验系统。点击上方按钮即可免费体验。",
         "desc_th": "ระบบรับชำระและตรวจสลิปอัตโนมัติระดับธุรกิจ [โปรเจกต์เชิงพาณิชย์ - มีตัวอย่างให้ลอง]",
         "url": "https://pp-pay-production.up.railway.app/?mid=DEMO",
         "icon": "💳", "color": "#2ecc71", "bg": "#F4FFF8"
@@ -195,9 +214,10 @@ for i, p in enumerate(projects):
         
         # Pure HTML Card to guarantee layout on Mobile
         # Pure HTML Card - Minified to prevent Markdown parsing issues
-        # We construct a single line string to avoid any indentation or newline interpretation by Markdown
+        # Added bg-icon for decorative top-right space filling
         html_content = (
             f'<div class="html-card">'
+            f'<div class="bg-icon">{p["icon"]}</div>'
             f'<div class="card-header">'
             f'<div class="qr-container"><img src="data:image/png;base64,{qr_b64}" class="qr-img"></div>'
             f'<div class="info-container">'

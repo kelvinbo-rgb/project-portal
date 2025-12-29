@@ -47,55 +47,50 @@ st.markdown("""
     footer {visibility: hidden;}
     header {visibility: hidden;}
     
-    /* Modern Background - Animated Mesh Gradient */
+    /* Premium Dark Gradient Background */
     .stApp {
-        background-color: #fdfbfb;
-        background-image: 
-            radial-gradient(at 0% 0%, hsla(199,94%,92%,1) 0, transparent 50%), 
-            radial-gradient(at 100% 0%, hsla(271,78%,93%,1) 0, transparent 50%), 
-            radial-gradient(at 100% 100%, hsla(21,83%,93%,1) 0, transparent 50%), 
-            radial-gradient(at 0% 100%, hsla(158,82%,91%,1) 0, transparent 50%);
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
         font-family: 'Outfit', sans-serif;
     }
     
-    /* Responsive Hero Title */
+    /* Responsive Hero Title - Light on Dark */
     .hero-title {
-        background: linear-gradient(90deg, #2c3e50, #000000, #2c3e50);
+        background: linear-gradient(90deg, #e94560, #f39422, #e94560);
         background-size: 200% auto;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-weight: 900;
-        font-size: clamp(2.5rem, 8vw, 4rem); /* Prevents wrapping on small screens */
+        font-size: clamp(2.5rem, 8vw, 4rem);
         text-align: center;
         margin-top: 30px;
         letter-spacing: -1.5px;
+        animation: shine 3s linear infinite;
+    }
+    @keyframes shine {
+        to { background-position: 200% center; }
     }
     
     .hero-subtitle {
         text-align: center; 
-        color: #555; 
+        color: rgba(255,255,255,0.7); 
         margin-bottom: 50px; 
         font-size: 1.1em;
         font-weight: 400;
-        opacity: 0.8;
     }
 
-    /* Glassmorphism Card */
+    /* Glassmorphism Card - Normal Size */
     .html-card {
-        background: rgba(255, 255, 255, 0.6);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        border-radius: 24px;
-        padding: 25px;
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
-        margin-bottom: 24px;
-        border: 1px solid rgba(255, 255, 255, 0.4);
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 22px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        margin-bottom: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
         position: relative;
         overflow: hidden;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
-        min-height: 520px; /* Force uniform height on desktop */
-        display: flex;
-        flex-direction: column;
     }
     .html-card:hover {
         transform: translateY(-5px);
@@ -168,39 +163,47 @@ st.markdown("""
     }
 
     .desc-box {
-        background-color: rgba(255, 255, 255, 0.4);
-        border-radius: 14px;
-        padding: 15px;
-        margin-top: 15px;
-        font-size: 0.9em;
+        background-color: rgba(245, 245, 245, 0.8);
+        border-radius: 12px;
+        padding: 12px;
+        margin-top: 12px;
+        font-size: 0.85em;
         color: #444;
-        line-height: 1.6;
-        border: 1px solid rgba(0,0,0,0.03);
+        line-height: 1.5;
+        border-left: 3px solid #ddd;
         position: relative;
         z-index: 2;
-        flex-grow: 1; /* Push the box to fill space */
     }
 
     /* Contact Section Premium */
     .contact-card {
-        background: rgba(0, 0, 0, 0.03);
-        border-radius: 30px;
-        padding: 40px;
-        margin-top: 60px;
-        border: 1px dashed rgba(0,0,0,0.1);
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        padding: 30px;
+        margin-top: 40px;
+        border: 1px solid rgba(255,255,255,0.15);
     }
     
     .contact-title {
         font-weight: 900;
-        font-size: clamp(1.5rem, 5vw, 2.5rem); 
+        font-size: clamp(1.3rem, 4vw, 2rem); 
         margin-bottom: 5px;
-        color: #333;
+        color: #fff;
     }
     .contact-subtitle {
-        font-size: 0.9em;
-        color: #777;
-        margin-bottom: 30px;
+        font-size: 0.85em;
+        color: rgba(255,255,255,0.6);
+        margin-bottom: 20px;
         letter-spacing: 1px;
+    }
+    
+    /* Section Headers on Dark BG */
+    .section-header {
+        color: #fff;
+        font-weight: 900;
+    }
+    .section-subheader {
+        color: rgba(255,255,255,0.7);
     }
 </style>
 """, unsafe_allow_html=True)
@@ -258,7 +261,7 @@ projects = [
         "desc_th": "ระบบรับชำระและตรวจสลิปอัตโนมัติระดับธุรกิจ [โปรเจกต์เชิงพาณิชย์ - มีตัวอย่างให้ลอง]",
         "url": "https://pp-pay-production.up.railway.app/?mid=DEMO",
         "icon": "💳", "color": "#27ae60", "bg": "#F4FFF8",
-        "img_icon": "https://upload.wikimedia.org/wikipedia/commons/e/e0/PromptPay-logo.png"
+        "local_icon": "PromptPay.png"
     }
 ]
 
@@ -270,10 +273,13 @@ for i, p in enumerate(projects):
     with col:
         qr_b64 = pil_to_base64(QRGenerator.generate(p['url']))
         
-        # Watermark logic - Slightly less faded for PromptPay
+        # Watermark logic - Use local image if available
         watermark_html = f'<div class="bg-icon-watermark">{p["icon"]}</div>'
-        if "img_icon" in p:
-            watermark_html = f'<img src="{p["img_icon"]}" class="bg-image-watermark">'
+        if "local_icon" in p and os.path.exists(p["local_icon"]):
+            import base64 as b64lib
+            with open(p["local_icon"], "rb") as img_file:
+                icon_b64 = b64lib.b64encode(img_file.read()).decode()
+            watermark_html = f'<img src="data:image/png;base64,{icon_b64}" class="bg-image-watermark">'
 
         html_content = (
             f'<div class="html-card" style="background: rgba(255,255,255,0.82);">{watermark_html}'
@@ -300,8 +306,8 @@ st.divider()
 # --- SPONSORSHIP SECTION ---
 st.markdown("""
 <div style="text-align: center; margin-bottom: 30px;">
-    <h1 style="color: #333; font-weight: 900;">COFFEE BREAK</h1>
-    <p style="color: #666; font-size: 1em;">Your support keeps these free tools alive! / 您的支持是我持续更新的最大的动力。</p>
+    <h1 class="section-header">☕ COFFEE BREAK</h1>
+    <p class="section-subheader">Your support keeps these free tools alive! / 您的支持是我持续更新的最大的动力。</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -348,11 +354,11 @@ with c2:
 
 with c3:
     st.markdown("<div style='text-align: center; font-weight: bold; margin-bottom: 10px;'>📧 Email</div>", unsafe_allow_html=True)
-    st.markdown("<div style='text-align: center; margin-top: 60px;'><a href='mailto:kelvinbo@gmail.com' style='color:#000; text-decoration:none; font-weight:bold;'>kelvinbo@gmail.com</a></div>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: center; margin-top: 30px;'><a href='mailto:kelvinbo@gmail.com' style='color:#000; text-decoration:none; font-weight:bold;'>kelvinbo@gmail.com</a><br><a href='mailto:kelvinbo@outlook.com' style='color:#000; text-decoration:none; font-weight:bold;'>kelvinbo@outlook.com</a></div>", unsafe_allow_html=True)
 
 st.markdown("""
 <br><br>
-<div style="text-align: center; color: #888; font-size: 0.8em; font-weight: 400; letter-spacing: 1px;">
+<div style="text-align: center; color: rgba(255,255,255,0.5); font-size: 0.8em; font-weight: 400; letter-spacing: 1px;">
     DESIGNED WITH AI BY BO LAB © 2025<br>
     MAY YOUR DREAMS COME TRUE.
 </div>

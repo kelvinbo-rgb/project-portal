@@ -189,7 +189,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Hero Header
-st.markdown("<h1 class='hero-title'>K-LAB: AI HUB</h1>", unsafe_allow_html=True)
+st.markdown("<h1 class='hero-title'>BO-LAB: AI HUB</h1>", unsafe_allow_html=True)
 st.markdown("<p class='hero-subtitle'>Premium Intelligence Workspace / 个人智选应用空间 / พื้นที่แอปพลิเคชันอัจฉริยะ</p>", unsafe_allow_html=True)
 
 # Projects Data
@@ -253,20 +253,20 @@ for i, p in enumerate(projects):
     with col:
         qr_b64 = pil_to_base64(QRGenerator.generate(p['url']))
         
-        # Watermark logic
+        # Watermark logic - Slightly less faded for PromptPay
         watermark_html = f'<div class="bg-icon-watermark">{p["icon"]}</div>'
         if "img_icon" in p:
-            watermark_html = f'<img src="{p["img_icon"]}" class="bg-image-watermark">'
+            watermark_html = f'<img src="{p["img_icon"]}" class="bg-image-watermark" style="opacity:0.12;">'
 
         html_content = (
-            f'<div class="html-card">{watermark_html}'
+            f'<div class="html-card" style="background: rgba(255,255,255,0.82);">{watermark_html}'
             f'<div class="card-header">'
             f'<div class="qr-container"><img src="data:image/png;base64,{qr_b64}" class="qr-img"></div>'
             f'<div class="info-container">'
             f'<div style="font-size: 1.8em; margin-bottom: 2px;">{p["icon"]}</div>'
             f'<div style="color:{p["color"]}; font-weight:900; font-size:1.4em; line-height:1.2;">{p["t_en"]}</div>'
             f'<div style="color:#222; font-weight:700; font-size:1.1em; line-height:1.3;">{p["t_cn"]}</div>'
-            f'<div style="color:#666; font-weight:400; font-size:1em;">{p["t_th"]}</div>'
+            f'<div style="color:#666; font-weight:400; font-size:0.9em;">{p["t_th"]}</div>'
             f'</div></div>'
             f'<a href="{p["url"]}" target="_blank" class="launch-btn" style="background-color: {p["color"]};">'
             f'LAUNCH / 立即启动 / เริ่มต้น</a>'
@@ -307,15 +307,35 @@ with s2:
 st.markdown("""
 <div class="contact-card">
     <div style="text-align: center; color: #333; line-height: 2;">
-        <h2 style="font-weight: 900; margin-bottom: 20px;">READY TO CONNECT?</h2>
-        <div style="font-size: 1.1em; display: inline-block; margin: 0 20px;">💬 WeChat: <b>kelvinbo</b></div>
-        <div style="font-size: 1.1em; display: inline-block; margin: 0 20px;">💚 Line: <b>kelvinbo</b></div>
-        <div style="font-size: 1.1em; margin-top: 10px;">📧 <a href="mailto:kelvinbo@gmail.com" style="color: #000; text-decoration: none;">kelvinbo@gmail.com</a></div>
-        <br><br>
-        <p style="color: #888; font-size: 0.9em; font-weight: 400; letter-spacing: 1px;">
-            DESIGNED WITH AI BY KELVIN LAB © 2025<br>
-            MAY YOUR DREAMS COME TRUE.
-        </p>
+        <h2 style="font-weight: 900; margin-bottom: 30px;">READY TO CONNECT?</h2>
     </div>
+</div>
+""", unsafe_allow_html=True)
+
+c1, c2, c3 = st.columns([1.2, 1.2, 1])
+
+with c1:
+    st.markdown("<div style='text-align: center; font-weight: bold; margin-bottom: 10px;'>💬 WeChat</div>", unsafe_allow_html=True)
+    if os.path.exists("WeChat.jpg"):
+        st.image("WeChat.jpg", width=180, use_container_width=False)
+    else:
+        st.markdown("<div style='text-align: center; color:#aaa; font-size:0.9em;'>ID: kelvinbo</div>", unsafe_allow_html=True)
+
+with c2:
+    st.markdown("<div style='text-align: center; font-weight: bold; margin-bottom: 10px;'>💚 Line</div>", unsafe_allow_html=True)
+    if os.path.exists("Line.jpg"):
+        st.image("Line.jpg", width=180, use_container_width=False)
+    else:
+        st.markdown("<div style='text-align: center; color:#aaa; font-size:0.9em;'>ID: kelvinbo</div>", unsafe_allow_html=True)
+
+with c3:
+    st.markdown("<div style='text-align: center; font-weight: bold; margin-bottom: 10px;'>📧 Email</div>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: center; margin-top: 60px;'><a href='mailto:kelvinbo@gmail.com' style='color:#000; text-decoration:none; font-weight:bold;'>kelvinbo@gmail.com</a></div>", unsafe_allow_html=True)
+
+st.markdown("""
+<br><br>
+<div style="text-align: center; color: #888; font-size: 0.8em; font-weight: 400; letter-spacing: 1px;">
+    DESIGNED WITH AI BY BO LAB © 2025<br>
+    MAY YOUR DREAMS COME TRUE.
 </div>
 """, unsafe_allow_html=True)

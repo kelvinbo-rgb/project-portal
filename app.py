@@ -1,25 +1,5 @@
 import streamlit as st
 from utils import QRGenerator
-
-# Page Config
-st.set_page_config(
-    page_title="Kelvin's App Collection",
-    page_icon="🚀",
-    layout="wide"
-)
-
-import streamlit as st
-from utils import QRGenerator
-
-# Page Config
-st.set_page_config(
-    page_title="Kelvin's App Collection",
-    page_icon="🚀",
-    layout="wide"
-)
-
-import streamlit as st
-from utils import QRGenerator
 import os
 import base64
 import io
@@ -30,31 +10,37 @@ def pil_to_base64(img):
     img.save(buffered, format="PNG")
     return base64.b64encode(buffered.getvalue()).decode()
 
-# Page Config
+# --- LINK PREVIEW (SEO/OG TAGS) ---
+# Note: Streamlit doesn't natively support OG tags in head perfectly via Python, 
+# but a trilingual title helps scrapers like LINE identify the site.
+TITLE = "BO-LAB: AI Hub | 个人智选应用空间 | พื้นที่แอปพลิเคชันอัจฉริยะ"
+DESCRIPTION = "Premium Intelligence Workspace / 个人智选应用空间 / พื้นที่แอปพลิเคชันอัจฉริยะ"
+
 st.set_page_config(
-    page_title="Kelvin's AI Hub",
+    page_title=TITLE,
     page_icon="🔮",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="collapsed",
 )
 
 # Custom Styling (The WOW Factor)
-st.markdown("""
+st.markdown(f"""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap');
 
     /* Hide Streamlit Stuff */
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
+    #MainMenu {{visibility: hidden;}}
+    footer {{visibility: hidden;}}
+    header {{visibility: hidden;}}
     
     /* Premium Dark Gradient Background */
-    .stApp {
+    .stApp {{
         background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
         font-family: 'Outfit', sans-serif;
-    }
+    }}
     
     /* Floating Particles Effect */
-    .stApp::before {
+    .stApp::before {{
         content: '';
         position: fixed;
         top: 0;
@@ -67,10 +53,10 @@ st.markdown("""
             radial-gradient(circle at 40% 40%, rgba(52, 152, 219, 0.08) 0%, transparent 30%);
         pointer-events: none;
         z-index: 0;
-    }
+    }}
     
     /* Responsive Hero Title - Light on Dark */
-    .hero-title {
+    .hero-title {{
         background: linear-gradient(90deg, #e94560, #f39422, #e94560);
         background-size: 200% auto;
         -webkit-background-clip: text;
@@ -81,21 +67,21 @@ st.markdown("""
         margin-top: 30px;
         letter-spacing: -1.5px;
         animation: shine 3s linear infinite;
-    }
-    @keyframes shine {
-        to { background-position: 200% center; }
-    }
+    }}
+    @keyframes shine {{
+        to {{ background-position: 200% center; }}
+    }}
     
-    .hero-subtitle {
+    .hero-subtitle {{
         text-align: center; 
         color: rgba(255,255,255,0.7); 
         margin-bottom: 50px; 
         font-size: 1.1em;
         font-weight: 400;
-    }
+    }}
 
     /* Glassmorphism Card - Normal Size */
-    .html-card {
+    .html-card {{
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
@@ -107,15 +93,15 @@ st.markdown("""
         position: relative;
         overflow: hidden;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .html-card:hover {
+    }}
+    .html-card:hover {{
         transform: translateY(-5px);
         box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.12);
         background: rgba(255, 255, 255, 0.75);
-    }
+    }}
     
     /* Background watermark effect */
-    .bg-image-watermark {
+    .bg-image-watermark {{
         position: absolute;
         top: -10px;
         right: -10px;
@@ -124,8 +110,8 @@ st.markdown("""
         transform: rotate(15deg);
         pointer-events: none;
         z-index: 0;
-    }
-    .bg-icon-watermark {
+    }}
+    .bg-icon-watermark {{
         position: absolute;
         top: -10px;
         right: -10px;
@@ -133,30 +119,30 @@ st.markdown("""
         opacity: 0.08;
         transform: rotate(15deg);
         pointer-events: none;
-    }
+    }}
 
-    .card-header {
+    .card-header {{
         display: flex;
         flex-direction: row;
         align-items: center;
         gap: 20px;
         position: relative;
         z-index: 2;
-    }
+    }}
     
-    .qr-container {
+    .qr-container {{
         flex: 0 0 100px; 
         width: 100px;
         background: white;
         padding: 5px;
         border-radius: 12px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-    }
-    .qr-img { width: 100%; border-radius: 8px; }
+    }}
+    .qr-img {{ width: 100%; border-radius: 8px; }}
     
-    .info-container { flex: 1; min-width: 0; }
+    .info-container {{ flex: 1; min-width: 0; }}
     
-    .launch-btn {
+    .launch-btn {{
         display: block;
         padding: 12px 0;
         color: white !important;
@@ -171,14 +157,14 @@ st.markdown("""
         transition: all 0.2s ease;
         position: relative;
         z-index: 3;
-    }
-    .launch-btn:hover {
+    }}
+    .launch-btn:hover {{
         opacity: 0.9;
         filter: brightness(1.05);
         box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-    }
+    }}
 
-    .desc-box {
+    .desc-box {{
         background-color: rgba(245, 245, 245, 0.8);
         border-radius: 12px;
         padding: 12px;
@@ -189,18 +175,18 @@ st.markdown("""
         border-left: 3px solid #ddd;
         position: relative;
         z-index: 2;
-    }
+    }}
 
     /* Contact Section Premium */
-    .contact-card {
+    .contact-card {{
         background: rgba(255, 255, 255, 0.1);
         border-radius: 24px;
         padding: 30px;
         margin-top: 40px;
         border: 1px solid rgba(255,255,255,0.15);
-    }
+    }}
     
-    .contact-title {
+    .contact-title {{
         background: linear-gradient(90deg, #7dd3fc, #38bdf8, #7dd3fc);
         background-size: 200% auto;
         -webkit-background-clip: text;
@@ -209,50 +195,50 @@ st.markdown("""
         font-size: clamp(1.3rem, 4vw, 2rem); 
         margin-bottom: 5px;
         animation: shine 3s linear infinite;
-    }
-    .contact-subtitle {
+    }}
+    .contact-subtitle {{
         font-size: 1em;
         color: #ffffff;
         margin-bottom: 20px;
         letter-spacing: 1px;
-    }
+    }}
     
     /* Section Headers on Dark BG - Vibrant Gradient */
-    .section-header {
+    .section-header {{
         background: linear-gradient(90deg, #e94560, #f39422, #e94560);
         background-size: 200% auto;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-weight: 900;
         animation: shine 3s linear infinite;
-    }
-    .section-subheader {
+    }}
+    .section-subheader {{
         color: #ffffff;
         font-size: 1em;
-    }
+    }}
     
     /* Contact Labels - Bright on Dark */
-    .contact-label {
+    .contact-label {{
         color: #fff !important;
         font-weight: bold;
         text-align: center;
         margin-bottom: 10px;
-    }
-    .email-link {
+    }}
+    .email-link {{
         color: #7dd3fc !important;
         text-decoration: none;
         font-weight: bold;
-    }
-    .email-link:hover {
+    }}
+    .email-link:hover {{
         color: #38bdf8 !important;
         text-decoration: underline;
-    }
+    }}
 </style>
 """, unsafe_allow_html=True)
 
 # Hero Header
 st.markdown("<h1 class='hero-title'>BO-LAB: AI HUB</h1>", unsafe_allow_html=True)
-st.markdown("<p class='hero-subtitle'>Premium Intelligence Workspace / 个人智选应用空间 / พื้นที่แอปพลิเคชันอัจฉริยะ</p>", unsafe_allow_html=True)
+st.markdown(f"<p class='hero-subtitle'>{DESCRIPTION}</p>", unsafe_allow_html=True)
 
 # Projects Data
 projects = [
@@ -284,7 +270,7 @@ projects = [
         "t_en": "Tarot Spreads", "t_cn": "塔罗牌阵", "t_th": "ไพ่ยิปซี",
         "desc_en": "Spiritual guidance via card spreads with live interpretation. [Commercial Project]",
         "desc_cn": "【付费项目】每日塔罗指引，真人解析，帮助您探索内心。先免费体验吧。",
-        "desc_th": "เริ่มต้นวันใหม่ด้วยคำทำนาย ไพ่ยิปซีเพื่อค้นหาคำตอบและแนวทางชีวิต",
+        "desc_th": "เริ่มต้นวันใหม่ด้วยคำทำนาย ไพ่ยิปซีเพื่อค้นหาคำตอบ和แนวทางชีวิต",
         "url": "https://kelvinbo-rgb.github.io/hong-tarot/TAROT.html",
         "icon": "🔮", "color": "#9b59b6", "bg": "#FAF5FF"
     },
@@ -318,9 +304,8 @@ for i, p in enumerate(projects):
         # Watermark logic - Use local image if available
         watermark_html = f'<div class="bg-icon-watermark">{p["icon"]}</div>'
         if "local_icon" in p and os.path.exists(p["local_icon"]):
-            import base64 as b64lib
             with open(p["local_icon"], "rb") as img_file:
-                icon_b64 = b64lib.b64encode(img_file.read()).decode()
+                icon_b64 = base64.b64encode(img_file.read()).decode()
             watermark_html = f'<img src="data:image/png;base64,{icon_b64}" class="bg-image-watermark">'
 
         html_content = (

@@ -11,17 +11,26 @@ def pil_to_base64(img):
     return base64.b64encode(buffered.getvalue()).decode()
 
 # --- LINK PREVIEW (SEO/OG TAGS) ---
-# Note: Streamlit doesn't natively support OG tags in head perfectly via Python, 
-# but a trilingual title helps scrapers like LINE identify the site.
-TITLE = "BO-LAB: AI Hub | 个人智选应用空间 | พื้นที่แอปพลิเคชันอัจฉริยะ"
-DESCRIPTION = "Premium Intelligence Workspace / 个人智选应用空间 / พื้นที่แอปพลิเคชันอัจฉริยะ"
+TITLE = "BO-LAB: AI Hub | 个人智选应用空间"
+DESCRIPTION = "Premium Intelligence Workspace | พื้นที่แอปพลิเคชันอัจฉริยะ"
 
 st.set_page_config(
     page_title=TITLE,
     page_icon="🔮",
     layout="wide",
-    initial_sidebar_state="collapsed",
 )
+
+# Meta Tag Hack for Scrapers (LINE/FB/WeChat)
+# This raw HTML is placed as early as possible in the body.
+st.markdown(f"""
+    <div style="display:none;">
+        <title>{TITLE}</title>
+        <meta name="description" content="{DESCRIPTION}">
+        <meta property="og:title" content="{TITLE}">
+        <meta property="og:description" content="{DESCRIPTION}">
+        <meta property="og:type" content="website">
+    </div>
+""", unsafe_allow_html=True)
 
 # Custom Styling (The WOW Factor)
 st.markdown(f"""

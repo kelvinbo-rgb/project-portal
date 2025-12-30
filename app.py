@@ -201,27 +201,34 @@ st.markdown("""
     }
     
     .contact-title {
+        background: linear-gradient(90deg, #7dd3fc, #38bdf8, #7dd3fc);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         font-weight: 900;
         font-size: clamp(1.3rem, 4vw, 2rem); 
         margin-bottom: 5px;
-        color: #ffffff;
-        text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        animation: shine 3s linear infinite;
     }
     .contact-subtitle {
-        font-size: 0.9em;
-        color: #e0e0e0;
+        font-size: 1em;
+        color: #ffffff;
         margin-bottom: 20px;
         letter-spacing: 1px;
     }
     
-    /* Section Headers on Dark BG - Bright White */
+    /* Section Headers on Dark BG - Vibrant Gradient */
     .section-header {
-        color: #ffffff;
+        background: linear-gradient(90deg, #e94560, #f39422, #e94560);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         font-weight: 900;
-        text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        animation: shine 3s linear infinite;
     }
     .section-subheader {
-        color: #e0e0e0;
+        color: #ffffff;
+        font-size: 1em;
     }
     
     /* Contact Labels - Bright on Dark */
@@ -340,9 +347,13 @@ st.divider()
 
 # --- SPONSORSHIP SECTION ---
 st.markdown("""
-<div style="text-align: center; margin-bottom: 30px;">
-    <h1 class="section-header">☕ COFFEE BREAK</h1>
-    <p class="section-subheader">Your support keeps these free tools alive! / 您的支持是我持续更新的最大的动力。</p>
+<div style="text-align: center; margin-bottom: 30px; padding: 20px;">
+    <h1 class="section-header">☕ BUY ME A COFFEE</h1>
+    <p class="section-subheader" style="max-width: 600px; margin: 0 auto; line-height: 1.8;">
+        <b>All projects here are open-source and free.</b> If they've helped you, consider buying me a coffee!<br>
+        <b>本站所有工具均为开源免费。</b>如果对您有帮助，请赞赏一杯咖啡，支持我的创作！<br>
+        <b>โปรเจกต์ทั้งหมดเป็น Open-Source ฟรี</b> หากชอบใจ ช่วยสนับสนุนผมสักแก้วกาแฟได้เลยครับ!
+    </p>
 </div>
 """, unsafe_allow_html=True)
 

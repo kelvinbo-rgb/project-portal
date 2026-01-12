@@ -296,9 +296,41 @@ projects = [
         "desc_en": "Enterprise PromptPay cashier system with slip verification. [Paid Project]",
         "desc_cn": "【付费项目】商业级 PromptPay 收银与回执核验系统。点击启动按钮免费体验。",
         "desc_th": "ระบบ PromptPay รับชำระและตรวจสลิปอัตโนมัติ [โปรเจกต์เชิงพาณิชย์ - มีตัวอย่างให้ลอง]",
-        "url": "https://pp-pay-production.up.railway.app/?mid=DEMO",
+        "url": "https://pay.bolab.online",
         "icon": "💳", "color": "#27ae60", "bg": "#F4FFF8",
         "local_icon": "PromptPay.png"
+    },
+    {
+        "t_en": "Visa Butler", "t_cn": "智能签证管家", "t_th": "ผู้ช่วยขอวีซ่าอัจฉริยะ",
+        "desc_en": "AI-powered visa application assistant.",
+        "desc_cn": "AI 驱动的签证申请助手，智能填表与材料指引。",
+        "desc_th": "ผู้ช่วยอัจฉริยะในการขอวีซ่า ช่วยกรอกเอกสารและแนะนำขั้นตอน",
+        "url": "https://industrial-brianne-kelvinbo-bf4f5d9a.koyeb.app/",
+        "icon": "🛂", "color": "#8e44ad", "bg": "#F5EEF8"
+    },
+    {
+        "t_en": "Form Wizard", "t_cn": "智能表单向导", "t_th": "ตัวช่วยสร้างแบบฟอร์ม",
+        "desc_en": "Smart form generator for any purpose.",
+        "desc_cn": "万能智能表单生成器，快速创建各类业务表单。",
+        "desc_th": "เครื่องมือสร้างแบบฟอร์มอัจฉริยะสำหรับทุกวัตถุประสงค์",
+        "url": "https://form.bolab.online",
+        "icon": "📝", "color": "#16a085", "bg": "#E8F8F5"
+    },
+    {
+        "t_en": "Amulet Monitor", "t_cn": "佛牌追踪系统", "t_th": "ระบบติดตามพระเครื่อง",
+        "desc_en": "Filtered tracking and automatic notifications via LINE/Email.",
+        "desc_cn": "智能佛牌监控系统，筛选特定关键词并自动推送通知。",
+        "desc_th": "ระบบติดตามและแจ้งเตือนอัตโนมัติเมื่อพบพระเครื่องที่ต้องการ",
+        "url": "#",
+        "icon": "🛡️", "color": "#d35400", "bg": "#FDF2E9"
+    },
+    {
+        "t_en": "PP-Pay Global", "t_cn": "全球聚合支付", "t_th": "ระบบชำระเงินทั่วโลก",
+        "desc_en": "Enterprise payment gateway middleware (Opn/GB/WeChat/Alipay).",
+        "desc_cn": "企业级聚合支付中台，无缝对接全球主流支付渠道。",
+        "desc_th": "ระบบรวมการชำระเงินระดับองค์กร รองรับช่องทางทั่วโลก",
+        "url": "#",
+        "icon": "🌐", "color": "#2c3e50", "bg": "#ECF0F1"
     }
 ]
 

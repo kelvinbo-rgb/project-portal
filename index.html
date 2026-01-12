@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BO-LAB: AI Hub | 个人智选应用空间</title>
+    <meta name="description" content="Premium Intelligence Workspace | พื้นที่แอปพลิเคชันอัจฉริยะ">
+    <meta property="og:title" content="BO-LAB: AI Hub | 个人智选应用空间">
+    <meta property="og:description" content="Premium Intelligence Workspace | พื้นที่แอปพลิเคชันอัจฉริยะ">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(90deg, #e94560, #f39422, #e94560);
+            --contact-gradient: linear-gradient(90deg, #7dd3fc, #38bdf8, #7dd3fc);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating Particles Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(233, 69, 96, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(243, 148, 34, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 40% 40%, rgba(52, 152, 219, 0.08) 0%, transparent 30%);
+            pointer-events: none;
+            z-index: 0;
+            animation: pulse 10s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .hero-title {
+            background: var(--primary-gradient);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            margin-bottom: 10px;
+            letter-spacing: -1.5px;
+            animation: shine 3s linear infinite;
+        }
+
+        .hero-subtitle {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.2em;
+            font-weight: 400;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        /* Grid */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        /* Card Styles */
+        .card {
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 45px 0 rgba(31, 38, 135, 0.2);
+            background: rgba(255, 255, 255, 0.9);
+            z-index: 10;
+        }
+
+        .bg-watermark {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 8em;
+            opacity: 0.08;
+            transform: rotate(15deg);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .bg-image-watermark {
+             position: absolute;
+             top: -20px;
+             right: -20px;
+             width: 150px;
+             opacity: 0.15;
+             transform: rotate(15deg);
+             pointer-events: none;
+             z-index: 0;
+        }
+
+        .card-header {
+            display: flex;
+            gap: 20px;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 20px;
+        }
+
+        .qr-box {
+            flex: 0 0 100px;
+            width: 100px;
+            height: 100px;
+            background: white;
+            padding: 8px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .qr-box img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .info-box {
+            flex: 1;
+        }
+
+        .project-icon { font-size: 2em; margin-bottom: 5px; }
+        .title-en { font-weight: 900; font-size: 1.4em; line-height: 1.2; margin-bottom: 4px; }
+        .title-cn { color: #222; font-weight: 700; font-size: 1.1em; margin-bottom: 4px; }
+        .title-th { color: #666; font-size: 0.9em; }
+
+        .launch-btn {
+            display: block;
+            padding: 14px 0;
+            color: white !important;
+            text-decoration: none;
+            border-radius: 14px;
+            font-weight: 700;
+            text-align: center;
+            width: 100%;
+            font-size: 1em;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+            position: relative;
+            z-index: 3;
+            margin-bottom: 15px;
+        }
+
+        .launch-btn:hover {
+            opacity: 0.95;
+            transform: scale(1.02);
+        }
+
+        .desc-box {
+            background-color: rgba(245, 245, 245, 0.8);
+            border-radius: 12px;
+            padding: 15px;
+            font-size: 0.9em;
+            color: #444;
+            line-height: 1.5;
+            border-left: 4px solid #ddd;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Sponsorship */
+        .sponsor-section {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 40px;
+        }
+        
+        .section-header {
+            background: var(--primary-gradient);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            font-size: 2em;
+            margin-bottom: 10px;
+            animation: shine 3s linear infinite;
+        }
+
+        .sponsor-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .sponsor-item img {
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            max-width: 200px;
+        }
+
+        /* Contact */
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 40px;
+            margin-top: 40px;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+
+        .contact-title {
+            background: var(--contact-gradient);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            font-size: 2em;
+            animation: shine 3s linear infinite;
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item { color: white; }
+        .contact-label { font-weight: bold; margin-bottom: 10px; font-size: 1.1em; }
+        .email-link { color: #7dd3fc; text-decoration: none; font-weight: bold; display: block; margin: 5px 0; }
+        
+        .footer {
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.8em;
+            margin-top: 50px;
+            letter-spacing: 1px;
+        }
+
+        /* Mobile tweaks */
+        @media (max-width: 600px) {
+            .hero-title { font-size: 2.5rem; }
+            .card-header { gap: 15px; }
+            .qr-box { flex: 0 0 80px; width: 80px; height: 80px; }
+            .title-en { font-size: 1.25em; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="hero">
+        <h1 class="hero-title">BO-LAB: AI HUB</h1>
+        <p class="hero-subtitle">Premium Intelligence Workspace | พื้นที่แอปพลิเคชันอัจฉริยะ</p>
+    </div>
+
+    <div class="project-grid" id="projectGrid">
+        <!-- Projects will be injected by JS -->
+    </div>
+
+    <div class="sponsor-section">
+        <h2 class="section-header">☕ BUY ME A COFFEE</h2>
+        <p style="color:white; max-width: 600px; margin: 0 auto; opacity: 0.9;">
+            <b>All projects here are open-source and free.</b> If they've helped you, consider buying me a coffee!<br>
+            <b>本站所有工具均为开源免费。</b>如果对您有帮助，请赞赏一杯咖啡，支持我的创作！<br>
+            <b>โปรเจกต์ทั้งหมดเป็น Open-Source ฟรี</b> หากชอบใจ ช่วยสนับสนุนผมสักแก้วกาแฟได้เลยครับ!
+        </p>
+        
+        <div class="sponsor-grid">
+            <div class="sponsor-item">
+                <div style="color:white; font-weight:bold; margin-bottom:10px;">Alipay (支付宝)</div>
+                <img src="qr_alipay.jpg" alt="Alipay" onerror="this.src='https://via.placeholder.com/200?text=Alipay'">
+            </div>
+            <div class="sponsor-item">
+                <div style="color:white; font-weight:bold; margin-bottom:10px;">PromptPay (Thailand)</div>
+                <img src="qr_promptpay.jpg" alt="PromptPay" onerror="this.src='https://via.placeholder.com/200?text=PromptPay'">
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-card">
+        <h2 class="contact-title">READY TO CONNECT?</h2>
+        <div style="color:white; margin-bottom:20px;">联系方式 / ติดต่อเรา</div>
+        
+        <div class="contact-grid">
+            <div class="contact-item">
+                <div class="contact-label">💬 WeChat</div>
+                <img src="WeChat.jpg" width="160" style="border-radius:10px;" onerror="this.style.display='none'; this.parentNode.innerHTML+='<div style=\'margin-top:10px\'>ID: kelvinbo</div>'">
+            </div>
+            <div class="contact-item">
+                <div class="contact-label">💚 Line</div>
+                <img src="Line.jpg" width="160" style="border-radius:10px;" onerror="this.style.display='none'; this.parentNode.innerHTML+='<div style=\'margin-top:10px\'>ID: kelvinbo</div>'">
+            </div>
+            <div class="contact-item">
+                <div class="contact-label">📧 Email</div>
+                <div style="margin-top: 30px;">
+                    <a href="mailto:kelvinbo@gmail.com" class="email-link">kelvinbo@gmail.com</a>
+                    <a href="mailto:kelvinbo@outlook.com" class="email-link">kelvinbo@outlook.com</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        DESIGNED WITH AI BY BO LAB © 2025<br>
+        MAY YOUR DREAMS COME TRUE.
+    </div>
+</div>
+
+<script>
+    const projects = [
+        {
+            t_en: "Thai Gold", t_cn: "泰国黄金", t_th: "ทองคำไทย",
+            desc_en: "Professional monitoring of Thai gold market and FOREX rates.",
+            desc_cn: "实时监控泰国金价与汇率，内置专业的投资盈亏计算器。",
+            desc_th: "ติดตามราคาทองคำและอัตราแลกเปลี่ยน พร้อมคำนวณกำไร/ขาดทุน",
+            url: "https://thai-gold-marjfazaj6s7kkvvbqrj6g.streamlit.app/",
+            icon: "🥇", color: "#f1c40f", bg: "#FFFDF0"
+        },
+        {
+            t_en: "Thai Lottery", t_cn: "泰国彩票", t_th: "หวยไทย",
+            desc_en: "Advanced AI statistical model for lottery number predictions.",
+            desc_cn: "基于历史大数据的 AI 彩票预测工具，可视化分析中奖趋势。",
+            desc_th: "เครื่องมือทำนายเลขหวยด้วย AI จากสถิติย้อนหลังและวิเคราะห์แนวโน้ม",
+            url: "https://thai-lottery-predictor-pbh3eacsmrwe9n73mew8w2.streamlit.app/",
+            icon: "🎰", color: "#e74c3c", bg: "#FFF0F0"
+        },
+        {
+            t_en: "Grade 2 Writing", t_cn: "二年级写字表", t_th: "ฝึกเขียนไทย",
+            desc_en: "Supportive digital writing practice for school students.",
+            desc_cn: "小学语文二年级上册电子写字表，随时随地练习笔画与发音。",
+            desc_th: "ตารางฝึกเขียนแบบดิจิทัลสำหรับนักเรียนประถม ฝึกฝนได้ทุกที่ทุกเวลา",
+            url: "https://kelvinbo-rgb.github.io/Year2.1-Chinese/",
+            icon: "✍️", color: "#1abc9c", bg: "#F0FFFE"
+        },
+        {
+            t_en: "Tarot Spreads", t_cn: "塔罗牌阵", t_th: "ไพ่ยิปซี",
+            desc_en: "Spiritual guidance via card spreads with live interpretation. [Commercial Project]",
+            desc_cn: "【付费项目】每日塔罗指引，真人解析，帮助您探索内心。先免费体验吧。",
+            desc_th: "เริ่มต้นวันใหม่ด้วยคำทำนาย ไพ่ยิปซีเพื่อค้นหาคำตอบและแนวทางชีวิต",
+            url: "https://kelvinbo-rgb.github.io/hong-tarot/TAROT.html",
+            icon: "🔮", color: "#9b59b6", bg: "#FAF5FF"
+        },
+        {
+            t_en: "Thai FX Assistant", t_cn: "泰铢汇率助手", t_th: "ผู้ช่วยอัตราแลกเปลี่ยน",
+            desc_en: "Intelligent LINE assistant for exchange rates. Command 'Rate'.",
+            desc_cn: "泰铢汇率 AI 智导。在 LINE 中发送指令“汇率”即可获取实时兑换行情。",
+            desc_th: "ผู้ช่วยอัจฉริยะด้านอัตราแลกเปลี่ยน พิมพ์คำสั่ง 'Rate' เพื่อตรวจสอบราคาแบบทันที",
+            url: "https://line.me/R/ti/p/%40282yqodu",
+            icon: "🤖", color: "#2980b9", bg: "#F0F8FF"
+        },
+        {
+            t_en: "PP-Pay Business", t_cn: "PromptPay 商业收银", t_th: "ระบบ PromptPay รับชำระ",
+            desc_en: "Enterprise PromptPay cashier system with slip verification. [Paid Project]",
+            desc_cn: "【付费项目】商业级 PromptPay 收银与回执核验系统。点击启动按钮免费体验。",
+            desc_th: "ระบบ PromptPay รับชำระและตรวจสลิปอัตโนมัติ [โปรเจกต์เชิงพาณิชย์ - มีตัวอย่างให้ลอง]",
+            url: "https://pay.bolab.online",
+            icon: "💳", color: "#27ae60", bg: "#F4FFF8",
+            local_icon: "PromptPay.png"
+        },
+        {
+            t_en: "Visa Butler", t_cn: "智能签证管家", t_th: "ผู้ช่วยขอวีซ่าอัจฉริยะ",
+            desc_en: "AI-powered visa application assistant.",
+            desc_cn: "AI 驱动的签证申请助手，智能填表与材料指引。",
+            desc_th: "ผู้ช่วยอัจฉริยะในการขอวีซ่า ช่วยกรอกเอกสารและแนะนำขั้นตอน",
+            url: "https://industrial-brianne-kelvinbo-bf4f5d9a.koyeb.app/",
+            icon: "🛂", color: "#8e44ad", bg: "#F5EEF8"
+        },
+        {
+            t_en: "Form Wizard", t_cn: "智能表单向导", t_th: "ตัวช่วยสร้างแบบฟอร์ม",
+            desc_en: "Smart form generator for any purpose.",
+            desc_cn: "万能智能表单生成器，快速创建各类业务表单。",
+            desc_th: "เครื่องมือสร้างแบบฟอร์มอัจฉริยะสำหรับทุกวัตถุประสงค์",
+            url: "https://form.bolab.online",
+            icon: "📝", color: "#16a085", bg: "#E8F8F5"
+        },
+        {
+            t_en: "Amulet Monitor", t_cn: "佛牌追踪系统", t_th: "ระบบติดตามพระเครื่อง",
+            desc_en: "Filtered tracking and automatic notifications via LINE/Email.",
+            desc_cn: "智能佛牌监控系统，筛选特定关键词并自动推送通知。",
+            desc_th: "ระบบติดตามและแจ้งเตือนอัตโนมัติเมื่อพบพระเครื่องที่ต้องการ",
+            url: "#",
+            icon: "🛡️", color: "#d35400", bg: "#FDF2E9"
+        },
+        {
+            t_en: "PP-Pay Global", t_cn: "全球聚合支付", t_th: "ระบบชำระเงินทั่วโลก",
+            desc_en: "Enterprise payment gateway middleware (Opn/GB/WeChat/Alipay).",
+            desc_cn: "企业级聚合支付中台，无缝对接全球主流支付渠道。",
+            desc_th: "ระบบรวมการชำระเงินระดับองค์กร รองรับช่องทางทั่วโลก",
+            url: "#",
+            icon: "🌐", color: "#2c3e50", bg: "#ECF0F1"
+        }
+    ];
+
+    const grid = document.getElementById('projectGrid');
+
+    projects.forEach((p, index) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.style.borderColor = p.color + '40'; // 25% opacity border
+        
+        // Check for local icon overrides (PromptPay)
+        let watermark = `<div class="bg-watermark">${p.icon}</div>`;
+        if (p.local_icon) {
+            watermark = `<img src="${p.local_icon}" class="bg-image-watermark">`;
+        }
+        
+        // Generate UUID like ID for QR code container
+        const qrId = `qr-${index}`;
+
+        card.innerHTML = `
+            ${watermark}
+            <div class="card-header">
+                <div class="qr-box" id="${qrId}"></div>
+                <div class="info-box">
+                    <div class="project-icon">${p.icon}</div>
+                    <div class="title-en" style="color: ${p.color}">${p.t_en}</div>
+                    <div class="title-cn">${p.t_cn}</div>
+                    <div class="title-th">${p.t_th}</div>
+                </div>
+            </div>
+            
+            <a href="${p.url}" target="_blank" class="launch-btn" style="background-color: ${p.color}">
+                LAUNCH / 立即启动 / เริ่มต้น
+            </a>
+            
+            <div class="desc-box" style="border-left-color: ${p.color}">
+                <b>${p.desc_en}</b><br>
+                <span style="opacity:0.9">${p.desc_cn}</span><br>
+                <span style="opacity:0.8">${p.desc_th}</span>
+            </div>
+        `;
+        
+        grid.appendChild(card);
+
+        // Generate QR Code
+        new QRCode(document.getElementById(qrId), {
+            text: p.url,
+            width: 84,
+            height: 84,
+            colorDark : "#000000",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.L
+        });
+    });
+</script>
+
+</body>
+</html>

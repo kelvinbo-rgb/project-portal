@@ -317,11 +317,11 @@ projects = [
         "icon": "📝", "color": "#16a085", "bg": "#E8F8F5"
     },
     {
-        "t_en": "Amulet Monitor", "t_cn": "佛牌追踪系统", "t_th": "ระบบติดตามพระเครื่อง",
-        "desc_en": "Filtered tracking and automatic notifications via LINE/Email.",
-        "desc_cn": "智能佛牌监控系统，筛选特定关键词并自动推送通知。",
-        "desc_th": "ระบบติดตามและแจ้งเตือนอัตโนมัติเมื่อพบพระเครื่องที่ต้องการ",
-        "url": "#",
+        "t_en": "Amulet Monitor Pro", "t_cn": "佛牌监控 (AI 专业版)", "t_th": "Amulet Monitor Pro (AI)",
+        "desc_en": "Advanced AI tracking with Gemini Pro. Professional dashboard & Telegram alerts.",
+        "desc_cn": "基于 Gemini Pro AI 的专业佛牌监控系统。提供个人专属面板与实时推送。",
+        "desc_th": "ระบบติดตามพระเครื่องอัจฉริยะด้วย AI Gemini Pro พร้อมแดชบอร์ดส่วนตัวและแจ้งเตือนผ่าน Telegram",
+        "url": "http://34.169.181.246/",
         "icon": "🛡️", "color": "#d35400", "bg": "#FDF2E9"
     },
     {

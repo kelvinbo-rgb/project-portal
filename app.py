@@ -321,7 +321,7 @@ projects = [
         "desc_en": "Advanced AI tracking with Gemini Pro. Professional dashboard & Telegram alerts.",
         "desc_cn": "基于 Gemini Pro AI 的专业佛牌监控系统。提供个人专属面板与实时推送。",
         "desc_th": "ระบบติดตามพระเครื่องอัจฉริยะด้วย AI Gemini Pro พร้อมแดชบอร์ดส่วนตัวและแจ้งเตือนผ่าน Telegram",
-        "url": "http://34.169.181.246/",
+        "url": "http://34.127.37.197/",
         "icon": "🛡️", "color": "#d35400", "bg": "#FDF2E9"
     },
     {

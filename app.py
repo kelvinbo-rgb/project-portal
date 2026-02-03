@@ -304,18 +304,18 @@ projects = [
     },
     {
         "t_en": "PP-Pay Business", "t_cn": "PromptPay 商业收银", "t_th": "ระบบ PromptPay รับชำระ",
-        "desc_en": "Enterprise PromptPay cashier system with slip verification. [Paid Project]",
-        "desc_cn": "【付费项目】商业级 PromptPay 收银与回执核验系统。点击启动按钮免费体验。",
-        "desc_th": "ระบบ PromptPay รับชำระและตรวจสลิปอัตโนมัติ [โปรเจกต์เชิงพาณิชย์ - มีตัวอย่างให้ลอง]",
+        "desc_en": "Custom amount collection tool with automatic slip verification.",
+        "desc_cn": "【付费项目】支持自定义金额的 PromptPay 收款工具，内置回执自动核验功能。",
+        "desc_th": "เครื่องมือรับชำระเงินที่กำหนดราคาได้เอง พร้อมระบบตรวจสอบสลิปอัตโนมัติ",
         "url": "https://pay.bolab.online",
         "icon": "💳", "color": "#27ae60", "bg": "#F4FFF8",
         "local_icon": "PromptPay.png"
     },
     {
         "t_en": "Visa Butler", "t_cn": "智能签证管家", "t_th": "ผู้ช่วยขอวีซ่าอัจฉริยะ",
-        "desc_en": "AI-powered visa application assistant.",
-        "desc_cn": "AI 驱动的签证申请助手，智能填表与材料指引。",
-        "desc_th": "ผู้ช่วยอัจฉริยะในการขอวีซ่า ช่วยกรอกเอกสารและแนะนำขั้นตอน",
+        "desc_en": "Smart alerts for Passport expiry, Visa renewals, and 90-day reporting.",
+        "desc_cn": "签证与护照管家：提供护照过期、签证续签及 90 天报到自动预警提醒。",
+        "desc_th": "ระบบแจ้งเตือนอัจฉริยะสำหรับพาสปอร์ต, ต่ออายุวีซ่า และรายงานตัว 90 วัน",
         "url": "https://industrial-brianne-kelvinbo-bf4f5d9a.koyeb.app/",
         "icon": "🛂", "color": "#8e44ad", "bg": "#F5EEF8"
     },

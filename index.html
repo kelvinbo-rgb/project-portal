@@ -337,6 +337,34 @@
             letter-spacing: 1px;
         }
 
+        /* Status Badge for Local Projects */
+        .status-badge {
+            background: #e94560;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: 700;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(233, 69, 96, 0.3);
+        }
+
+        /* Local Disclaimer Box */
+        .disclaimer-box {
+            background: rgba(233, 69, 96, 0.1);
+            border-left: 5px solid #e94560;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #ffffff;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
         /* Mobile tweaks */
         @media (max-width: 600px) {
             .hero-title {
@@ -368,6 +396,13 @@
             <p class="hero-subtitle">Premium Intelligence Workspace | พื้นที่แอปพลิเคชันอัจฉริยะ</p>
         </div>
 
+        <div class="disclaimer-box">
+            🛡️ <b>NOTICE:</b> Some applications are currently running on <b>Private Local Servers</b> for demonstration
+            only.<br>
+            如果您对某些展示项目感兴趣或需要部署，请通过下方的联系方式与我取得联系。<br>
+            หากคุณสนใจหรือต้องการติดตั้งแอปพลิเคชันส่วนตัวเหล่านี้ กรุณาติดต่อผ่านช่องทางด้านล่าง
+        </div>
+
         <div class="project-grid" id="projectGrid">
             <!-- Projects will be injected by JS -->
         </div>
@@ -395,7 +430,7 @@
             </div>
         </div>
 
-        <div class="contact-card">
+        <div class="contact-card" id="contact-card">
             <h2 class="contact-title">READY TO CONNECT?</h2>
             <div style="color:white; margin-bottom:20px;">联系方式 / ติดต่อเรา</div>
 
@@ -470,18 +505,18 @@
             },
             {
                 t_en: "PP-Pay Business", t_cn: "PromptPay 商业收银", t_th: "ระบบ PromptPay รับชำระ",
-                desc_en: "Enterprise PromptPay cashier system with slip verification. [Paid Project]",
-                desc_cn: "【付费项目】商业级 PromptPay 收银与回执核验系统。点击启动按钮免费体验。",
-                desc_th: "ระบบ PromptPay รับชำระและตรวจสลิปอัตโนมัติ [โปรเจกต์เชิงพาณิชย์ - มีตัวอย่างให้ลอง]",
+                desc_en: "Custom amount collection tool with automatic slip verification.",
+                desc_cn: "【付费项目】支持自定义金额的 PromptPay 收款工具，内置回执自动核验功能。",
+                desc_th: "เครื่องมือรับชำระเงินที่กำหนดราคาได้เอง พร้อมระบบตรวจสอบสลิปอัตโนมัติ",
                 url: "https://pay.bolab.online",
                 icon: "💳", color: "#27ae60", bg: "#F4FFF8",
                 local_icon: "PromptPay.png"
             },
             {
                 t_en: "Visa Butler", t_cn: "智能签证管家", t_th: "ผู้ช่วยขอวีซ่าอัจฉริยะ",
-                desc_en: "AI-powered visa application assistant.",
-                desc_cn: "AI 驱动的签证申请助手，智能填表与材料指引。",
-                desc_th: "ผู้ช่วยอัจฉริยะในการขอวีซ่า ช่วยกรอกเอกสารและแนะนำขั้นตอน",
+                desc_en: "Smart alerts for Passport expiry, Visa renewals, and 90-day reporting.",
+                desc_cn: "签证与护照管家：提供护照过期、签证续签及 90 天报到自动预警提醒。",
+                desc_th: "ระบบแจ้งเตือนอัจฉริยะสำหรับพาสปอร์ต, ต่ออายุวีซ่า และรายงานตัว 90 วัน",
                 url: "https://visa.bolab.online",
                 icon: "🛂", color: "#8e44ad", bg: "#F5EEF8"
             },
@@ -502,12 +537,28 @@
                 icon: "🛡️", color: "#d35400", bg: "#FDF2E9"
             },
             {
-                t_en: "PP-Pay Global", t_cn: "全球聚合支付", t_th: "ระบบชำระเงินทั่วโลก",
+                t_en: "PP-Pay Global", t_cn: "全球聚合支付", t_th: "ระบบรวมการชำระเงินทั่วโลก",
                 desc_en: "Enterprise payment gateway middleware (Opn/GB/WeChat/Alipay).",
                 desc_cn: "企业级聚合支付中台，无缝对接全球主流支付渠道。",
                 desc_th: "ระบบรวมการชำระเงินระดับองค์กร รองรับช่องทางทั่วโลก",
                 url: "https://pp-pay-global-production.up.railway.app/",
                 icon: "🌐", color: "#2c3e50", bg: "#ECF0F1"
+            },
+            {
+                t_en: "MyAI Local Chat", t_cn: "本地 AI 聊天机器人", t_th: "แชทบอท AI ท้องถิ่น",
+                desc_en: "Private AI assistant using LM Studio models and local Whisper voice transcription.",
+                desc_cn: "私有化 AI 助手，基于 LM Studio 本地模型，支持语音转文字与多语种交互。",
+                desc_th: "ผู้ช่วย AI ส่วนตัวโดยใช้โมเดล LM Studio และการถอดเสียง Whisper ท้องถิ่น",
+                url: "#contact-card", is_local: true,
+                icon: "🛸", color: "#34495e", bg: "#EBEDEF"
+            },
+            {
+                t_en: "LINE Accounting Bot", t_cn: "LINE 记账机器人", t_th: "บอทบัญชี LINE",
+                desc_en: "Private accounting bot for groups with Google Sheets sync and currency conversion.",
+                desc_cn: "基于 LINE 群组的私有记账机器人，自动同步 Google 表格并支持汇率转换。",
+                desc_th: "บอทบัญชีส่วนตัวในกลุ่ม LINE พร้อมการรวม Google Sheets และการแปลงสกุลเงิน",
+                url: "#contact-card", is_local: true,
+                icon: "📊", color: "#2c3e50", bg: "#ECF0F1"
             }
         ];
 
@@ -527,8 +578,16 @@
             // Generate UUID like ID for QR code container
             const qrId = `qr-${index}`;
 
+            // Card Header & Logic
+            const isLocal = p.is_local || false;
+            let statusBadge = isLocal ? `<div class="status-badge">LOCAL ONLY / 私有运行</div>` : '';
+            let btnText = isLocal ? 'CONTACT TO DEPLOY / 联系部署 / ติดต่อเรา' : 'LAUNCH / 立即启动 / เริ่มต้น';
+            let btnTarget = isLocal ? '_self' : '_blank';
+            let btnBg = isLocal ? '#555' : p.color;
+
             card.innerHTML = `
             ${watermark}
+            ${statusBadge}
             <div class="card-header">
                 <div class="qr-box" id="${qrId}"></div>
                 <div class="info-box">
@@ -539,8 +598,8 @@
                 </div>
             </div>
             
-            <a href="${p.url}" target="_blank" class="launch-btn" style="background-color: ${p.color}">
-                LAUNCH / 立即启动 / เริ่มต้น
+            <a href="${p.url}" target="${btnTarget}" class="launch-btn" style="background-color: ${btnBg}">
+                ${btnText}
             </a>
             
             <div class="desc-box" style="border-left-color: ${p.color}">

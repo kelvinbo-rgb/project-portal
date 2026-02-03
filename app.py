@@ -254,7 +254,7 @@ st.markdown("""
 <div style="background: rgba(233,69,96,0.1); border-left: 5px solid #e94560; padding: 15px; border-radius: 10px; margin-bottom: 30px; text-align: center;">
     <p style="color: #fff; margin: 0; font-size: 0.95em;">
         🛡️ <b>NOTICE:</b> Some applications are currently running on <b>Private Local Servers</b> for demonstration only.<br>
-        如果您对某些展示项目感兴趣或需要部署，请通过下方的联系方式与我取得联系。<br>
+        <b>注意：</b>部分标记为“私有运行”的应用目前仅在本地环境演示。如需使用或单独部署，请通过下方联系方式与我取得联系。<br>
         หากคุณสนใจหรือต้องการติดตั้งแอปพลิเคชันส่วนตัวเหล่านี้ กรุณาติดต่อผ่านช่องทางด้านล่าง
     </p>
 </div>
@@ -358,6 +358,14 @@ projects = [
         "desc_th": "บอทบัญชีส่วนตัวในกลุ่ม LINE พร้อมการรวม Google Sheets และการแปลงสกุลเงิน",
         "url": "#", "is_local": True,
         "icon": "📊", "color": "#2c3e50", "bg": "#ECF0F1"
+    },
+    {
+        "t_en": "QR Menu", "t_cn": "扫码点单系统", "t_th": "ระบบสั่งอาหาร QR",
+        "desc_en": "Digital QR code menu and ordering system for restaurants with multi-vendor support.",
+        "desc_cn": "专业餐饮扫码点单系统，支持多店部署、自动生成二维码及订单管理。",
+        "desc_th": "ระบบสั่งอาหารผ่าน QR Code สำหรับร้านอาหาร รองรับหลายสาขา พร้อมระบบจัดการออเดอร์",
+        "url": "#", "is_local": True,
+        "icon": "🍴", "color": "#e67e22", "bg": "#FBEEE6"
     }
 ]
 

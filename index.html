@@ -550,7 +550,7 @@
                 desc_cn: "私有化 AI 助手，基于 LM Studio 本地模型，支持语音转文字与多语种交互。",
                 desc_th: "ผู้ช่วย AI ส่วนตัวโดยใช้โมเดล LM Studio และการถอดเสียง Whisper ท้องถิ่น",
                 url: "#contact-card", is_local: true,
-                icon: "🛸", color: "#34495e", bg: "#EBEDEF"
+                icon: "🛸", color: "#6c5ce7", bg: "#EBEDEF"
             },
             {
                 t_en: "LINE Accounting Bot", t_cn: "LINE 记账机器人", t_th: "บอทบัญชี LINE",
@@ -558,7 +558,7 @@
                 desc_cn: "基于 LINE 群组的私有记账机器人，自动同步 Google 表格并支持汇率转换。",
                 desc_th: "บอทบัญชีส่วนตัวในกลุ่ม LINE พร้อมการรวม Google Sheets และการแปลงสกุลเงิน",
                 url: "#contact-card", is_local: true,
-                icon: "📊", color: "#2c3e50", bg: "#ECF0F1"
+                icon: "📊", color: "#00b900", bg: "#ECF0F1"
             }
         ];
 
@@ -583,7 +583,7 @@
             let statusBadge = isLocal ? `<div class="status-badge">LOCAL ONLY / 私有运行</div>` : '';
             let btnText = isLocal ? 'CONTACT TO DEPLOY / 联系部署 / ติดต่อเรา' : 'LAUNCH / 立即启动 / เริ่มต้น';
             let btnTarget = isLocal ? '_self' : '_blank';
-            let btnBg = isLocal ? '#555' : p.color;
+            let btnBg = p.color; // Always use project color
 
             card.innerHTML = `
             ${watermark}

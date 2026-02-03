@@ -249,6 +249,17 @@ st.markdown(f"""
 st.markdown("<h1 class='hero-title'>BO-LAB: AI HUB</h1>", unsafe_allow_html=True)
 st.markdown(f"<p class='hero-subtitle'>{DESCRIPTION}</p>", unsafe_allow_html=True)
 
+# Local Disclaimer Note
+st.markdown("""
+<div style="background: rgba(233,69,96,0.1); border-left: 5px solid #e94560; padding: 15px; border-radius: 10px; margin-bottom: 30px; text-align: center;">
+    <p style="color: #fff; margin: 0; font-size: 0.95em;">
+        🛡️ <b>NOTICE:</b> Some applications are currently running on <b>Private Local Servers</b> for demonstration only.<br>
+        如果您对某些展示项目感兴趣或需要部署，请通过下方的联系方式与我取得联系。<br>
+        หากคุณสนใจหรือต้องการติดตั้งแอปพลิเคชันส่วนตัวเหล่านี้ กรุณาติดต่อผ่านช่องทางด้านล่าง
+    </p>
+</div>
+""", unsafe_allow_html=True)
+
 # Projects Data
 projects = [
     {
@@ -325,12 +336,28 @@ projects = [
         "icon": "🛡️", "color": "#d35400", "bg": "#FDF2E9"
     },
     {
-        "t_en": "PP-Pay Global", "t_cn": "全球聚合支付", "t_th": "ระบบชำระเงินทั่วโลก",
+        "t_en": "PP-Pay Global", "t_cn": "全球聚合支付", "t_th": "ระบบรวมการชำระเงินทั่วโลก",
         "desc_en": "Enterprise payment gateway middleware (Opn/GB/WeChat/Alipay).",
         "desc_cn": "企业级聚合支付中台，无缝对接全球主流支付渠道。",
         "desc_th": "ระบบรวมการชำระเงินระดับองค์กร รองรับช่องทางทั่วโลก",
         "url": "#",
         "icon": "🌐", "color": "#2c3e50", "bg": "#ECF0F1"
+    },
+    {
+        "t_en": "MyAI Local Chat", "t_cn": "本地 AI 聊天机器人", "t_th": "แชทบอท AI ท้องถิ่น",
+        "desc_en": "Private AI assistant using LM Studio models and local Whisper voice transcription.",
+        "desc_cn": "私有化 AI 助手，基于 LM Studio 本地模型，支持语音转文字与多语种交互。",
+        "desc_th": "ผู้ช่วย AI ส่วนตัวโดยใช้โมเดล LM Studio และการถอดเสียง Whisper ท้องถิ่น",
+        "url": "#", "is_local": True,
+        "icon": "🛸", "color": "#34495e", "bg": "#EBEDEF"
+    },
+    {
+        "t_en": "LINE Accounting Bot", "t_cn": "LINE 记账机器人", "t_th": "บอทบัญชี LINE",
+        "desc_en": "Private accounting bot for groups with Google Sheets sync and currency conversion.",
+        "desc_cn": "基于 LINE 群组的私有记账机器人，自动同步 Google 表格并支持汇率转换。",
+        "desc_th": "บอทบัญชีส่วนตัวในกลุ่ม LINE พร้อมการรวม Google Sheets และการแปลงสกุลเงิน",
+        "url": "#", "is_local": True,
+        "icon": "📊", "color": "#2c3e50", "bg": "#ECF0F1"
     }
 ]
 
@@ -349,8 +376,21 @@ for i, p in enumerate(projects):
                 icon_b64 = base64.b64encode(img_file.read()).decode()
             watermark_html = f'<img src="data:image/png;base64,{icon_b64}" class="bg-image-watermark">'
 
+        # Status Badge logic
+        is_local = p.get("is_local", False)
+        status_html = ""
+        btn_text = "LAUNCH / 立即启动 / เริ่มต้น"
+        btn_link = p['url']
+        btn_style = f"background-color: {p['color']};"
+        
+        if is_local:
+            status_html = '<div style="background: #e94560; color: white; padding: 2px 10px; border-radius: 20px; font-size: 0.7em; font-weight: 700; position: absolute; top: 20px; right: 20px; z-index: 10;">LOCAL ONLY / 私有运行</div>'
+            btn_text = "CONTACT TO DEPLOY / 联系部署 / ติดต่อเรา"
+            btn_link = "#contact-footer"
+            btn_style = "background-color: #555; cursor: default;"
+
         html_content = (
-            f'<div class="html-card" style="background: rgba(255,255,255,0.82);">{watermark_html}'
+            f'<div class="html-card" style="background: rgba(255,255,255,0.82);">{watermark_html}{status_html}'
             f'<div class="card-header">'
             f'<div class="qr-container"><img src="data:image/png;base64,{qr_b64}" class="qr-img"></div>'
             f'<div class="info-container">'
@@ -359,8 +399,8 @@ for i, p in enumerate(projects):
             f'<div style="color:#222; font-weight:700; font-size:1.1em; line-height:1.3;">{p["t_cn"]}</div>'
             f'<div style="color:#666; font-weight:400; font-size:0.9em;">{p["t_th"]}</div>'
             f'</div></div>'
-            f'<a href="{p["url"]}" target="_blank" class="launch-btn" style="background-color: {p["color"]};">'
-            f'LAUNCH / 立即启动 / เริ่มต้น</a>'
+            f'<a href="{btn_link}" target="_self" class="launch-btn" style="{btn_style}">'
+            f'{btn_text}</a>'
             f'<div class="desc-box" style="border-left-color: {p["color"]};">'
             f'<b>{p["desc_en"]}</b><br>'
             f'<span style="font-size:0.95em; opacity:0.9;">{p["desc_cn"]}</span><br>'
@@ -399,6 +439,7 @@ with s2:
         st.image("https://via.placeholder.com/200?text=PromptPay", width=200)
 
 # --- CONTACT FOOTER ---
+st.markdown('<div id="contact-footer"></div>', unsafe_allow_html=True)
 st.markdown("""
 <div class="contact-card">
     <div style="text-align: center; line-height: 1.5;">

@@ -287,6 +287,14 @@ projects = [
         "icon": "🗣️", "color": "#6c5ce7", "bg": "#F5F3FF"
     },
     {
+        "t_en": "Grade 2 Writing", "t_cn": "二年级写字表", "t_th": "ฝึกเขียนไทย",
+        "desc_en": "Supportive digital writing practice for school students.",
+        "desc_cn": "小学语文二年级上册电子写字表，随时随地练习笔画与发音。",
+        "desc_th": "ตารางฝึกเขียนแบบดิจิทัลสำหรับนักเรียนประถม ฝึกฝนได้ทุกที่ทุกเวลา",
+        "url": "https://kelvinbo-rgb.github.io/Year2.1-Chinese/",
+        "icon": "✍️", "color": "#1abc9c", "bg": "#F0FFFE"
+    },
+    {
         "t_en": "Thai Gold", "t_cn": "泰国黄金", "t_th": "ทองคำไทย",
         "desc_en": "Professional monitoring of Thai gold market and FOREX rates.",
         "desc_cn": "实时监控泰国金价与汇率，内置专业的投资盈亏计算器。",

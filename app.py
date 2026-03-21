@@ -263,6 +263,30 @@ st.markdown("""
 # Projects Data
 projects = [
     {
+        "t_en": "SET Grid Bot", "t_cn": "证券网格交易 Bot", "t_th": "บอทแจ้งเตือนซื้อขายแบบ Grid",
+        "desc_en": "Telegram bot for grid-style price monitoring on SET securities. Auto alerts for buy/sell/take-profit with pyramid sizing. Supports custom budget, trade recording & Excel import.",
+        "desc_cn": "基于 Telegram 的证券网格交易监控机器人。自动推送买入/卖出/止盈信号，支持金字塔仓位管理、自定义预算、交易记录与 Excel 导入。",
+        "desc_th": "บอท Telegram สำหรับติดตามราคาหลักทรัพย์ในตลาด SET แบบ Grid แจ้งเตือนซื้อ/ขาย/ทำกำไรอัตโนมัติ พร้อมระบบจัดการกระสุน, บันทึกการซื้อขาย และนำเข้าจาก Excel",
+        "url": "#", "is_local": True,
+        "icon": "📈", "color": "#0984e3", "bg": "#EBF5FB"
+    },
+    {
+        "t_en": "Crypto Auto-Bot", "t_cn": "加密货币自动交易 Bot", "t_th": "บอทเทรดคริปโตอัตโนมัติ",
+        "desc_en": "Automated trading engine for Binance TH (BTC/THB). Real-time price tracking via WebSockets, AI evaluation, and automated order execution. Features Telegram alerts and position management.",
+        "desc_cn": "高效的加密货币自动交易引擎。通过 WebSockets 实时追踪价格，内置 AI 策略评估与订单执行，支持 Telegram 通知与仓位管理。",
+        "desc_th": "เครื่องมือเทรดคริปโตอัตโนมัติสำหรับ Binance TH ติดตามราคาผ่าน WebSocket, ประเมินด้วย AI และส่งคำสั่งซื้อขายอัตโนมัติ พร้อมแจ้งเตือนผ่าน Telegram",
+        "url": "#", "is_local": True,
+        "icon": "⚡", "color": "#f39c12", "bg": "#FEF5E7"
+    },
+    {
+        "t_en": "TalkMate", "t_cn": "智能外语对话", "t_th": "TalkMate (ทอล์คเมท)",
+        "desc_en": "AI-powered language learning platform. Practice Thai, Chinese, and English with an AI tutor. Connect with language exchange partners.",
+        "desc_cn": "基于 AI 的外语学习平台：与 AI 导师练习泰语、汉语和英语。支持真人老师对接与语伴交流，即时沉浸式练习。",
+        "desc_th": "แพลตฟอร์มเรียนภาษาด้วย AI ฝึกภาษาไทย จีน และอังกฤษกับติวเตอร์อัจฉริยะ พร้อมระบบจับคู่แลกเปลี่ยนภาษาแบบเรียลไทม์",
+        "url": "https://talkmate.bolab.online",
+        "icon": "🗣️", "color": "#6c5ce7", "bg": "#F5F3FF"
+    },
+    {
         "t_en": "Thai Gold", "t_cn": "泰国黄金", "t_th": "ทองคำไทย",
         "desc_en": "Professional monitoring of Thai gold market and FOREX rates.",
         "desc_cn": "实时监控泰国金价与汇率，内置专业的投资盈亏计算器。",
@@ -278,14 +302,7 @@ projects = [
         "url": "https://thai-lottery-predictor-pbh3eacsmrwe9n73mew8w2.streamlit.app/",
         "icon": "🎰", "color": "#e74c3c", "bg": "#FFF0F0"
     },
-    {
-        "t_en": "Grade 2 Writing", "t_cn": "二年级写字表", "t_th": "ฝึกเขียนไทย",
-        "desc_en": "Supportive digital writing practice for school students.",
-        "desc_cn": "小学语文二年级上册电子写字表，随时随地练习笔画与发音。",
-        "desc_th": "ตารางฝึกเขียนแบบดิจิทัลสำหรับนักเรียนประถม ฝึกฝนได้ทุกที่ทุกเวลา",
-        "url": "https://kelvinbo-rgb.github.io/Year2.1-Chinese/",
-        "icon": "✍️", "color": "#1abc9c", "bg": "#F0FFFE"
-    },
+
     {
         "t_en": "Tarot Spreads", "t_cn": "塔罗牌阵", "t_th": "ไพ่ยิปซี",
         "desc_en": "Spiritual guidance via card spreads with live interpretation. [Commercial Project]",
@@ -335,6 +352,7 @@ projects = [
         "url": "http://amulet.bolab.online/",
         "icon": "🛡️", "color": "#d35400", "bg": "#FDF2E9"
     },
+
     {
         "t_en": "PP-Pay Global", "t_cn": "全球聚合支付", "t_th": "ระบบรวมการชำระเงินทั่วโลก",
         "desc_en": "Enterprise payment gateway middleware (Opn/GB/WeChat/Alipay).",

@@ -263,12 +263,36 @@ st.markdown("""
 # Projects Data
 projects = [
     {
+        "t_en": "Antigravity Command Center", "t_cn": "战情指挥大屏", "t_th": "แดชบอร์ดควบคุม Antigravity",
+        "desc_en": "Unified real-time dashboard monitoring Crypto, Forex, and ETF bots. Features cyber radar charts, concentric cockpit health gauges, automated Yahoo Finance fetching, and multi-currency ledger tracking.",
+        "desc_cn": "独立的智能机器人战情大屏。统一监控加密货币、外汇与 ETF 机器人，提供炫酷赛博雷达图、同心圆环健康仪表盘、自适应汇率及出入金账本管理。",
+        "desc_th": "แดชบอร์ดศูนย์ควบคุมบอทเทรดรวมแบบเรียลไทม์ ติดตามพอร์ตคริปโต, Forex และ ETF พร้อมแสดงผลแผนภูมิต้นไม้, เกจวัดสุขภาพ 3 มิติ และระบบบันทึกบัญชีอัตโนมัติ",
+        "url": "#", "is_local": True,
+        "icon": "📡", "color": "#e056fd", "bg": "#FDF2F9"
+    },
+    {
         "t_en": "SET Grid Bot", "t_cn": "证券网格交易 Bot", "t_th": "บอทแจ้งเตือนซื้อขายแบบ Grid",
         "desc_en": "Telegram bot for grid-style price monitoring on SET securities. Auto alerts for buy/sell/take-profit with pyramid sizing. Supports custom budget, trade recording & Excel import.",
         "desc_cn": "基于 Telegram 的证券网格交易监控机器人。自动推送买入/卖出/止盈信号，支持金字塔仓位管理、自定义预算、交易记录与 Excel 导入。",
-        "desc_th": "บอท Telegram สำหรับติดตามราคาหลักทรัพย์ในตลาด SET แบบ Grid แจ้งเตือนซื้อ/ขาย/ทำกำไรอัตโนมัติ พร้อมระบบจัดการกระสุน, บันทึกการซื้อขาย และนำเข้าจาก Excel",
+        "desc_th": "บอท Telegram สำหรับติดตามราคาหลักทรัพย์ในตลาด SET แบบ Grid แจ้งเตือนซื้อ/ขาย/ทำกำไรอัตโนมัติ พร้อมระบบจัดการกระสุน, บันทึกการซื้อขาย และนำเข้า从 Excel",
         "url": "#", "is_local": True,
         "icon": "📈", "color": "#0984e3", "bg": "#EBF5FB"
+    },
+    {
+        "t_en": "cTrader AI Grid Bot", "t_cn": "cTrader AI 智能外汇网格机器人", "t_th": "บอทเทรด Forex cTrader AI",
+        "desc_en": "Bi-directional intelligent grid hedging for Forex (EUR/USD) with micro-lot support (0.01 lot) and leverage up to 1:500. Designed for small-capital robust arbitrage.",
+        "desc_cn": "专为外汇市场（EUR/USD等）设计的智能双向对冲与轻量杠杆交易系统。支持0.01微型手起步，支持1:500高杠杆，低保证金稳健套利。",
+        "desc_th": "ระบบเทรด Forex (EUR/USD) แบบ Grid อัจฉริยะสองทิศทาง รองรับ Micro-lots (0.01) เลเวอเรจสูงสุด 1:500 สำหรับทำกำไรส่วนต่างด้วยเงินทุนต่ำอย่างมั่นคง",
+        "url": "#", "is_local": True,
+        "icon": "💹", "color": "#2ecc71", "bg": "#EAF2F8"
+    },
+    {
+        "t_en": "Base Flash-Strike V7", "t_cn": "Base 闪电对冲套利 V7", "t_th": "บอทจำลองทำกำไร Base Flash-Strike V7",
+        "desc_en": "High-velocity multi-DEX concentrated liquidity arbitrage engine on Base Mainnet. Integrates Aerodrome Slipstream, dynamic token discovery, and optimized smart contracts.",
+        "desc_cn": "部署于 Base 主网的高性能多DEX集中流动性套利系统。支持 Aerodrome Slipstream、动态 Token 发现机制与定制的 Solidity 闪电贷智能合约。",
+        "desc_th": "บอทจำลองและเทรด Arbitrage บนเครือข่าย Base V7 ตรวจจับราคาส่วนต่างแบบ Real-time ระหว่าง Slipstream, Uniswap V3 และ V2 พร้อมยิงผ่านสัญญาอัจฉริยะ",
+        "url": "#", "is_local": True,
+        "icon": "🏹", "color": "#e74c3c", "bg": "#FDEDEC"
     },
     {
         "t_en": "Crypto Auto-Bot", "t_cn": "加密货币自动交易 Bot", "t_th": "บอทเทรดคริปโตอัตโนมัติ",
@@ -279,6 +303,22 @@ projects = [
         "icon": "⚡", "color": "#f39c12", "bg": "#FEF5E7"
     },
     {
+        "t_en": "cTrader AI Indices Grid Bot", "t_cn": "cTrader AI 智能股指网格机器人", "t_th": "บอทเทรดดัชนี cTrader AI",
+        "desc_en": "cTrader-based index grid trading engine targeting US and European stock indices (NAS100, SPX500, US30). Implements ATR-based dynamic spacing, asymmetric hedge ratios, and spread protection.",
+        "desc_cn": "基于 cTrader 的股指网格交易系统。专门针对纳指 (NAS100)、标普 (SPX500) 等主流指数，支持自适应 ATR 间距、动态对冲机制及暴跌断路保护。",
+        "desc_th": "บอทเทรดดัชนี cTrader แบบ Grid มุ่งเน้นดัชนีหุ้นหลัก (NAS100, SPX500, US30) พร้อมระบบปรับระยะกริดอัตโนมัติตามความผันผวน (ATR) และการป้องกันค่าสเปรด",
+        "url": "#", "is_local": True,
+        "icon": "🏛️", "color": "#0abde3", "bg": "#EAF9FD"
+    },
+    {
+        "t_en": "cTrader AI Precious Metals Grid Bot", "t_cn": "cTrader AI 智能贵金属网格机器人", "t_th": "บอทเทรดโลหะมีค่า cTrader AI",
+        "desc_en": "cTrader-based precious metals trading system optimized for XAUUSD (Gold). Employs micro-lot precision, symmetry indicators, and a counter-hedge riposte engine to withstand high volatility.",
+        "desc_cn": "基于 cTrader 的贵金属网格交易系统。针对黄金 (XAUUSD) 的高波动特性进行深度优化，利用微型仓位控制与双向对冲利刃引擎进行稳健套利。",
+        "desc_th": "บอทเทรดโลหะมีค่า (ทองคำ XAUUSD) บน cTrader ออกแบบมาสำหรับรับมือกับความผันผวนสูง ด้วยการจัดการความเสี่ยงแบบ Micro-lots และบอทคู่อะล็อกสองทิศทาง",
+        "url": "#", "is_local": True,
+        "icon": "🪙", "color": "#e1b12c", "bg": "#FCF8E9"
+    },
+    {
         "t_en": "TalkMate", "t_cn": "智能外语对话", "t_th": "TalkMate (ทอล์คเมท)",
         "desc_en": "AI-powered language learning platform. Practice Thai, Chinese, and English with an AI tutor. Connect with language exchange partners.",
         "desc_cn": "基于 AI 的外语学习平台：与 AI 导师练习泰语、汉语和英语。支持真人老师对接与语伴交流，即时沉浸式练习。",
@@ -287,7 +327,7 @@ projects = [
         "icon": "🗣️", "color": "#6c5ce7", "bg": "#F5F3FF"
     },
     {
-        "t_en": "Grade 2 Writing", "t_cn": "二年级写字表", "t_th": "ฝึกเขียนไทย",
+        "t_en": "Grade 2 Writing I", "t_cn": "二年级上册写字表", "t_th": "ฝึกเขียนไทย เทอม 1",
         "desc_en": "Supportive digital writing practice for school students.",
         "desc_cn": "小学语文二年级上册电子写字表，随时随地练习笔画与发音。",
         "desc_th": "ตารางฝึกเขียนแบบดิจิทัลสำหรับนักเรียนประถม ฝึกฝนได้ทุกที่ทุกเวลา",
@@ -295,27 +335,50 @@ projects = [
         "icon": "✍️", "color": "#1abc9c", "bg": "#F0FFFE"
     },
     {
-        "t_en": "Thai Gold", "t_cn": "泰国黄金", "t_th": "ทองคำไทย",
-        "desc_en": "Professional monitoring of Thai gold market and FOREX rates.",
-        "desc_cn": "实时监控泰国金价与汇率，内置专业的投资盈亏计算器。",
-        "desc_th": "ติดตามราคาทองคำและอัตราแลกเปลี่ยน พร้อมคำนวณกำไร/ขาดทุน",
-        "url": "https://thai-gold-marjfazaj6s7kkvvbqrj6g.streamlit.app/",
+        "t_en": "Grade 2 Writing II", "t_cn": "二年级下册写字表", "t_th": "ฝึกเขียนไทย เทอม 2",
+        "desc_en": "Digital writing practice for Grade 2 (Term 2) students. Features stroke animation, pronunciation guide, and interactive quizzes.",
+        "desc_cn": "小学语文二年级下册电子生字小助手，支持动态笔顺展示、标准朗读及课后小测试。",
+        "desc_th": "ตารางฝึกเขียนอักษรจีนดิจิทัลสำหรับนักเรียนประถมปีที่ 2 (เทอม 2) พร้อมตัวอย่างการขีด, การออกเสียง และแบบทดสอบ",
+        "url": "https://kelvinbo-rgb.github.io/Year2.2-Chinese/",
+        "icon": "📖", "color": "#10ac84", "bg": "#EBFDF9"
+    },
+    {
+        "t_en": "PEP PDF Print Helper", "t_cn": "人教版 PDF 2合1排版打印助手", "t_th": "เครื่องมือจัดหน้าหนังสือเรียนแบบ 2-in-1",
+        "desc_en": "Custom Python utility to rearrange vertical standard PDF textbook pages side-by-side onto landscape A4 sheets, perfect for convenient double-page printing.",
+        "desc_cn": "基于 Python 的 PDF 页面拼版排版工具。自动将竖版 PDF 课本拼接为双面 A4 横向排版，极大地节省纸张，便于家庭及移动设备直接打印。",
+        "desc_th": "โปรแกรม Python สำหรับจัดหน้าไฟล์ PDF หนังสือเรียนภาษาจีนแนวตั้งให้รวมเป็น 2 หน้าบน A4 แนวนอน ช่วยให้สั่งพิมพ์สองหน้าได้ง่ายและประหยัดกระดาษ",
+        "url": "#", "is_local": True,
+        "icon": "🖨️", "color": "#34495e", "bg": "#F2F4F4"
+    },
+    {
+        "t_en": "AI Store Manager", "t_cn": "AI 连锁店长 (KDS)", "t_th": "ผู้จัดการร้าน AI",
+        "desc_en": "Independent AI shop manager with KDS tablet UI, AI polish & finance stats.",
+        "desc_cn": "独立的 AI 门店管理助手：KDS 看板、AI 润色指令、实时 50/50 营收核算。",
+        "desc_th": "ระบบจัดการร้านค้า AI อัจฉริยะ พร้อมหน้าจอ KDS, การขัดเกลาคำสั่ง และสรุปรายได้",
+        "url": "https://manager.bolab.online",
+        "icon": "👨‍🍳", "color": "#6c5ce7", "bg": "#F5F3FF"
+    },
+    {
+        "t_en": "Thai Gold", "t_cn": "泰国黄金 (私有)", "t_th": "ทองคำไทย",
+        "desc_en": "Professional monitoring of Thai gold market and FOREX rates. [Private Only]",
+        "desc_cn": "实时监控泰国金价与汇率。该项目目前仅提供私有化部署测试。",
+        "desc_th": "ติดตามราคาทองคำและอัตราแลกเปลี่ยน [สำหรับการติดตั้งส่วนตัวเท่านั้น]",
+        "url": "#", "is_local": True,
         "icon": "🥇", "color": "#f1c40f", "bg": "#FFFDF0"
     },
     {
-        "t_en": "Thai Lottery", "t_cn": "泰国彩票", "t_th": "หวยไทย",
-        "desc_en": "Advanced AI statistical model for lottery number predictions.",
-        "desc_cn": "基于历史大数据的 AI 彩票预测工具，可视化分析中奖趋势。",
-        "desc_th": "เครื่องมือทำนายเลขหวยด้วย AI จากสถิติย้อนหลังและวิเคราะห์แนวโน้ม",
-        "url": "https://thai-lottery-predictor-pbh3eacsmrwe9n73mew8w2.streamlit.app/",
+        "t_en": "Thai Lottery", "t_cn": "泰国彩票 (私有)", "t_th": "หวยไทย",
+        "desc_en": "Advanced AI statistical model for lottery predictions. [Private]",
+        "desc_cn": "基于历史大数据和 AI 算法的彩票预测工具。目前仅提供私有化部署。",
+        "desc_th": "เครื่องมือทำนายเลขหวยด้วย AI [สำหรับการติดตั้งส่วนตัวเท่านั้น]",
+        "url": "#", "is_local": True,
         "icon": "🎰", "color": "#e74c3c", "bg": "#FFF0F0"
     },
-
     {
         "t_en": "Tarot Spreads", "t_cn": "塔罗牌阵", "t_th": "ไพ่ยิปซี",
         "desc_en": "Spiritual guidance via card spreads with live interpretation. [Commercial Project]",
         "desc_cn": "【付费项目】每日塔罗指引，真人解析，帮助您探索内心。先免费体验吧。",
-        "desc_th": "เริ่มต้นวันใหม่ด้วยคำทำนาย ไพ่ยิปซีเพื่อค้นหาคำตอบ和แนวทางชีวิต",
+        "desc_th": "เริ่มต้นวันใหม่ด้วยคำทำนาย ไพ่ยิปซีเพื่อค้นหาคำตอบและแนวทางชีวิต",
         "url": "https://kelvinbo-rgb.github.io/hong-tarot/TAROT.html",
         "icon": "🔮", "color": "#9b59b6", "bg": "#FAF5FF"
     },
@@ -341,15 +404,15 @@ projects = [
         "desc_en": "Smart alerts for Passport expiry, Visa renewals, and 90-day reporting.",
         "desc_cn": "签证与护照管家：提供护照过期、签证续签及 90 天报到自动预警提醒。",
         "desc_th": "ระบบแจ้งเตือนอัจฉริยะสำหรับพาสปอร์ต, ต่ออายุวีซ่า และรายงานตัว 90 วัน",
-        "url": "https://industrial-brianne-kelvinbo-bf4f5d9a.koyeb.app/",
+        "url": "https://visa.bolab.online",
         "icon": "🛂", "color": "#8e44ad", "bg": "#F5EEF8"
     },
     {
-        "t_en": "Form Wizard", "t_cn": "智能表单向导", "t_th": "ตัวช่วยสร้างแบบฟอร์ม",
-        "desc_en": "Smart form generator for any purpose.",
-        "desc_cn": "万能智能表单生成器，快速创建各类业务表单。",
-        "desc_th": "เครื่องมือสร้างแบบฟอร์มอัจฉริยะสำหรับทุกวัตถุประสงค์",
-        "url": "https://form.bolab.online",
+        "t_en": "Form Wizard", "t_cn": "智能表单向导 (私有)", "t_th": "ตัวช่วยสร้างแบบฟอร์ม",
+        "desc_en": "Smart form generator for any purpose. [Private Only]",
+        "desc_cn": "万能智能表单生成器。该项目目前仅提供私有化部署测试。",
+        "desc_th": "เครื่องมือสร้างแบบฟอร์มอัจฉริยะ [สำหรับการติดตั้งส่วนตัวเท่านั้น]",
+        "url": "#", "is_local": True,
         "icon": "📝", "color": "#16a085", "bg": "#E8F8F5"
     },
     {
@@ -360,13 +423,12 @@ projects = [
         "url": "http://amulet.bolab.online/",
         "icon": "🛡️", "color": "#d35400", "bg": "#FDF2E9"
     },
-
     {
-        "t_en": "PP-Pay Global", "t_cn": "全球聚合支付", "t_th": "ระบบรวมการชำระเงินทั่วโลก",
-        "desc_en": "Enterprise payment gateway middleware (Opn/GB/WeChat/Alipay).",
-        "desc_cn": "企业级聚合支付中台，无缝对接全球主流支付渠道。",
-        "desc_th": "ระบบรวมการชำระเงินระดับองค์กร รองรับช่องทางทั่วโลก",
-        "url": "#",
+        "t_en": "PP-Pay Global", "t_cn": "全球聚合支付 (私有)", "t_th": "ระบบรวมการชำระเงินทั่วโลก",
+        "desc_en": "Enterprise payment gateway middleware. [Private Only]",
+        "desc_cn": "企业级聚合支付中台。该项目目前暂停公共访问，仅供私有测试。",
+        "desc_th": "ระบบรวมการชำระเงินระดับองค์กร [สำหรับการติดตั้งส่วนตัวเท่านั้น]",
+        "url": "#", "is_local": True,
         "icon": "🌐", "color": "#2c3e50", "bg": "#ECF0F1"
     },
     {
@@ -375,21 +437,21 @@ projects = [
         "desc_cn": "私有化 AI 助手，基于 LM Studio 本地模型，支持语音转文字与多语种交互。",
         "desc_th": "ผู้ช่วย AI ส่วนตัวโดยใช้โมเดล LM Studio และการถอดเสียง Whisper ท้องถิ่น",
         "url": "#", "is_local": True,
-        "icon": "🛸", "color": "#34495e", "bg": "#EBEDEF"
+        "icon": "🛸", "color": "#6c5ce7", "bg": "#EBEDEF"
     },
     {
-        "t_en": "LINE Accounting Bot", "t_cn": "LINE 记账机器人", "t_th": "บอทบัญชี LINE",
-        "desc_en": "Private accounting bot for groups with Google Sheets sync and currency conversion.",
-        "desc_cn": "基于 LINE 群组的私有记账机器人，自动同步 Google 表格并支持汇率转换。",
-        "desc_th": "บอทบัญชีส่วนตัวในกลุ่ม LINE พร้อมการรวม Google Sheets และการแปลงสกุลเงิน",
+        "t_en": "LINE Accounting Bot", "t_cn": "LINE 记账机器人 (私有)", "t_th": "บอทบัญชี LINE",
+        "desc_en": "Private accounting bot for groups with Google Sheets sync. [Private Only]",
+        "desc_cn": "基于 LINE 群组的私有记账机器人。该项目目前仅供私有化演示。",
+        "desc_th": "บอทบัญชีส่วนตัวในกลุ่ม LINE [สำหรับการติดตั้งส่วนตัวเท่านั้น]",
         "url": "#", "is_local": True,
-        "icon": "📊", "color": "#2c3e50", "bg": "#ECF0F1"
+        "icon": "📊", "color": "#00b900", "bg": "#ECF0F1"
     },
     {
-        "t_en": "QR Menu", "t_cn": "扫码点单系统", "t_th": "ระบบสั่งอาหาร QR",
-        "desc_en": "Digital QR code menu and ordering system for restaurants with multi-vendor support.",
-        "desc_cn": "专业餐饮扫码点单系统，支持多店部署、自动生成二维码及订单管理。",
-        "desc_th": "ระบบสั่งอาหารผ่าน QR Code สำหรับร้านอาหาร รองรับหลายสาขา พร้อมระบบจัดการออเดอร์",
+        "t_en": "QR Menu", "t_cn": "扫码点单系统 (私有)", "t_th": "ระบบสั่งอาหาร QR",
+        "desc_en": "Digital QR code menu and ordering system for restaurants. [Private Only]",
+        "desc_cn": "专业餐饮扫码点单系统。目前仅供私有化部署演示。",
+        "desc_th": "ระบบสั่งอาหารผ่าน QR Code [สำหรับการติดตั้งส่วนตัวเท่านั้น]",
         "url": "#", "is_local": True,
         "icon": "🍴", "color": "#e67e22", "bg": "#FBEEE6"
     }

@@ -263,10 +263,10 @@ st.markdown("""
 # Projects Data
 projects = [
     {
-        "t_en": "Antigravity Command Center", "t_cn": "战情指挥大屏", "t_th": "แดชบอร์ดควบคุม Antigravity",
-        "desc_en": "Unified real-time dashboard monitoring Crypto, Forex, and ETF bots. Features cyber radar charts, concentric cockpit health gauges, automated Yahoo Finance fetching, and multi-currency ledger tracking.",
-        "desc_cn": "独立的智能机器人战情大屏。统一监控加密货币、外汇与 ETF 机器人，提供炫酷赛博雷达图、同心圆环健康仪表盘、自适应汇率及出入金账本管理。",
-        "desc_th": "แดชบอร์ดศูนย์ควบคุมบอทเทรดรวมแบบเรียลไทม์ ติดตามพอร์ตคริปโต, Forex และ ETF พร้อมแสดงผลแผนภูมิต้นไม้, เกจวัดสุขภาพ 3 มิติ และระบบบันทึกบัญชีอัตโนมัติ",
+        "t_en": "Command Center", "t_cn": "战情指挥大屏", "t_th": "แดชบอร์ดควบคุม Command Center",
+        "desc_en": "Unified real-time dashboard monitoring Crypto, Forex, Precious Metals, Indices, and ETF bots. Features cyber radar charts, concentric cockpit health gauges, automated Yahoo Finance fetching, and multi-currency ledger tracking.",
+        "desc_cn": "独立的智能机器人战情大屏。统一监控加密货币、外汇、贵金属、股指与 ETF 机器人，提供炫酷赛博雷达图、同心圆环健康仪表盘、自适应汇率及出入金账本管理。",
+        "desc_th": "แดชบอร์ดศูนย์ควบคุมบอทเทรดรวมแบบเรียลไทม์ ติดตามพอร์ตคริปโต, Forex, โลหะมีค่า, ดัชนีหุ้น และ ETF พร้อมแสดงผลแผนภูมิต้นไม้, เกจวัดสุขภาพ 3 มิติ และระบบบันทึกบัญชีอัตโนมัติ",
         "url": "#", "is_local": True,
         "icon": "📡", "color": "#e056fd", "bg": "#FDF2F9"
     },
@@ -274,7 +274,7 @@ projects = [
         "t_en": "SET Grid Bot", "t_cn": "证券网格交易 Bot", "t_th": "บอทแจ้งเตือนซื้อขายแบบ Grid",
         "desc_en": "Telegram bot for grid-style price monitoring on SET securities. Auto alerts for buy/sell/take-profit with pyramid sizing. Supports custom budget, trade recording & Excel import.",
         "desc_cn": "基于 Telegram 的证券网格交易监控机器人。自动推送买入/卖出/止盈信号，支持金字塔仓位管理、自定义预算、交易记录与 Excel 导入。",
-        "desc_th": "บอท Telegram สำหรับติดตามราคาหลักทรัพย์ในตลาด SET แบบ Grid แจ้งเตือนซื้อ/ขาย/ทำกำไรอัตโนมัติ พร้อมระบบจัดการกระสุน, บันทึกการซื้อขาย และนำเข้า从 Excel",
+        "desc_th": "บอท Telegram สำหรับติดตามราคาหลักทรัพย์ในตลาด SET แบบ Grid แจ้งเตือนซื้อ/ขาย/ทำกำไรอัตโนมัติ พร้อมระบบจัดการกระสุน, บันทึกการซื้อขาย และนำเข้าจาก Excel",
         "url": "#", "is_local": True,
         "icon": "📈", "color": "#0984e3", "bg": "#EBF5FB"
     },
@@ -287,10 +287,10 @@ projects = [
         "icon": "💹", "color": "#2ecc71", "bg": "#EAF2F8"
     },
     {
-        "t_en": "Base Flash-Strike V7", "t_cn": "Base 闪电对冲套利 V7", "t_th": "บอทจำลองทำกำไร Base Flash-Strike V7",
+        "t_en": "Base Flash-Strike", "t_cn": "Base 闪电对冲套利", "t_th": "บอทจำลองทำกำไร Base Flash-Strike",
         "desc_en": "High-velocity multi-DEX concentrated liquidity arbitrage engine on Base Mainnet. Integrates Aerodrome Slipstream, dynamic token discovery, and optimized smart contracts.",
         "desc_cn": "部署于 Base 主网的高性能多DEX集中流动性套利系统。支持 Aerodrome Slipstream、动态 Token 发现机制与定制的 Solidity 闪电贷智能合约。",
-        "desc_th": "บอทจำลองและเทรด Arbitrage บนเครือข่าย Base V7 ตรวจจับราคาส่วนต่างแบบ Real-time ระหว่าง Slipstream, Uniswap V3 และ V2 พร้อมยิงผ่านสัญญาอัจฉริยะ",
+        "desc_th": "บอทจำลองและเทรด Arbitrage บนเครือข่าย Base ตรวจจับราคาส่วนต่างแบบ Real-time ระหว่าง Slipstream, Uniswap V3 และ V2 พร้อมยิงผ่านสัญญาอัจฉริยะ",
         "url": "#", "is_local": True,
         "icon": "🏹", "color": "#e74c3c", "bg": "#FDEDEC"
     },
@@ -341,14 +341,6 @@ projects = [
         "desc_th": "ตารางฝึกเขียนอักษรจีนดิจิทัลสำหรับนักเรียนประถมปีที่ 2 (เทอม 2) พร้อมตัวอย่างการขีด, การออกเสียง และแบบทดสอบ",
         "url": "https://kelvinbo-rgb.github.io/Year2.2-Chinese/",
         "icon": "📖", "color": "#10ac84", "bg": "#EBFDF9"
-    },
-    {
-        "t_en": "PEP PDF Print Helper", "t_cn": "人教版 PDF 2合1排版打印助手", "t_th": "เครื่องมือจัดหน้าหนังสือเรียนแบบ 2-in-1",
-        "desc_en": "Custom Python utility to rearrange vertical standard PDF textbook pages side-by-side onto landscape A4 sheets, perfect for convenient double-page printing.",
-        "desc_cn": "基于 Python 的 PDF 页面拼版排版工具。自动将竖版 PDF 课本拼接为双面 A4 横向排版，极大地节省纸张，便于家庭及移动设备直接打印。",
-        "desc_th": "โปรแกรม Python สำหรับจัดหน้าไฟล์ PDF หนังสือเรียนภาษาจีนแนวตั้งให้รวมเป็น 2 หน้าบน A4 แนวนอน ช่วยให้สั่งพิมพ์สองหน้าได้ง่ายและประหยัดกระดาษ",
-        "url": "#", "is_local": True,
-        "icon": "🖨️", "color": "#34495e", "bg": "#F2F4F4"
     },
     {
         "t_en": "AI Store Manager", "t_cn": "AI 连锁店长 (KDS)", "t_th": "ผู้จัดการร้าน AI",
